@@ -1,0 +1,2081 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Razor client commands</title>
+<link rel="stylesheet" type="text/css" href="https://puppet-docs-herrera.netlify.app/css/fonts.css">
+<link rel="stylesheet" type="text/css" href="https://puppet-docs-herrera.netlify.app/css/docs.css">
+<meta name="prodname" content="pe">
+<meta name="version" content="2016.4">
+</head>
+<body>
+
+
+
+
+
+<div class="pm-site-secondary">
+  <div class="container pm-site-secondary__wrapper">
+
+    <section>
+      <div class="pm-site-secondary__satellite">
+        <nav>
+          <div class="pm-site-secondary__satellite-menu"><ul class="pm-site-secondary__satellite-menu__items items">
+<li class="item"><a href="/">Puppet.com</a></li>
+<li class="item"><a href="https://forge.puppet.com/">Forge</a></li>
+<li class="item"><a href="https://learn.puppet.com/">Compass</a></li>
+<li><div class="button-wrapper">
+                                <a href="/try-puppet/" class="pm-button pm-button--purple">
+                                    Try Puppet
+                                </a><!-- This URL might change -->
+                              </div></li>
+</ul></div>
+<!-- Content generated with JS -->
+        </nav>
+      </div>
+    </section>
+
+  </div>
+</div>
+<header id="pm-site-header" class="pm-site-header">
+  <div class="container pm-site-header__wrapper">
+    <section>
+      <div class="pm-site-header__primary">
+        <div class="pm-site-header__logo">
+          <a href="/" class="pm-link">
+            <svg width="124" height="52" viewbox="0 0 124 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path d="M50.1614 50.451H56.2668V18.8085H50.1614V30.4919C49.1846 29.3236 47.0355 28.2039 44.691 28.2039C38.3414 28.2039 34.7759 33.3641 34.7759 39.5952C34.7759 45.8264 38.3414 50.9379 44.691 50.9379C47.0355 50.9379 49.1846 49.8182 50.1614 48.6499V50.451ZM50.1614 43.1489C49.4776 44.658 47.8658 45.6803 46.0586 45.6803C42.7861 45.6803 40.8324 43.0516 40.8324 39.5952C40.8324 36.0902 42.7861 33.4614 46.0586 33.4614C47.817 33.4614 49.4776 34.5324 50.1614 35.9928V43.1489Z" fill="#222629"></path>
+                <path d="M79.88 39.5952C79.88 32.8773 75.533 28.2039 69.1834 28.2039C62.8338 28.2039 58.4868 32.8773 58.4868 39.5952C58.4868 46.2645 62.8338 50.9379 69.1834 50.9379C75.533 50.9379 79.88 46.2645 79.88 39.5952ZM73.8723 39.5952C73.8723 43.1976 72.2117 45.8264 69.1834 45.8264C66.1552 45.8264 64.4945 43.1976 64.4945 39.5952C64.4945 35.9442 66.1552 33.3154 69.1834 33.3154C72.2117 33.3154 73.8723 35.9442 73.8723 39.5952Z" fill="#222629"></path>
+                <path d="M82.1001 39.5952C82.1001 46.3132 86.3983 50.9379 92.6013 50.9379C98.0717 50.9379 101.54 47.7736 102.175 43.1003H96.2157C95.8738 44.7554 94.555 45.7777 92.6013 45.7777C89.8173 45.7777 88.1078 43.2463 88.1078 39.5952C88.1078 35.8955 89.8173 33.3641 92.6013 33.3641C94.555 33.3641 95.8738 34.3864 96.2157 36.0415H102.175C101.54 31.4169 98.0717 28.2039 92.6013 28.2039C86.3983 28.2039 82.1001 32.8286 82.1001 39.5952Z" fill="#222629"></path>
+                <path d="M104.395 43.9765C105.029 48.4065 108.79 50.9379 114.115 50.9379C119.194 50.9379 123.053 48.3091 123.053 43.8791C123.053 40.5689 121.05 38.4756 117.241 37.5506L112.747 36.5283C111.38 36.1876 110.793 35.7008 110.793 34.8245C110.793 33.4614 112.21 32.7799 113.675 32.7799C115.678 32.7799 116.703 33.7049 117.094 34.9219H122.858C122.125 30.8327 119.097 28.2039 113.577 28.2039C108.693 28.2039 104.883 31.0274 104.883 35.2626C104.883 38.9137 107.227 40.6175 110.549 41.3964L114.945 42.37C116.459 42.7595 117.143 43.2463 117.143 44.2199C117.143 45.6317 115.922 46.3619 114.066 46.3619C112.259 46.3619 110.891 45.5343 110.402 43.9765H104.395Z" fill="#222629"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.44027 39.8298H8.88053V35.4043H4.44027V39.8298ZM4.44027 8.85106H8.88053V4.42553H4.44027V8.85106ZM28.8617 28.766V15.4894H18.8711L13.3208 9.95745V0H0V13.2766H9.9906L15.5409 18.8085V25.4468L9.9906 30.9787H0V44.2553H13.3208V34.2979L18.8711 28.766H28.8617Z" fill="#FFAE1A"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <nav class="pm-site-header__primary-nav">
+          <button title="Show or hide navigation" class="pm-site-header__primary-menu__hamburger" id="pm-site-header__primary-menu__hamburger">
+            <span class="pm-site-header__primary-menu__hamburger__frame">
+              <span class="pm-site-header__primary-menu__hamburger__inner"></span>
+            </span>
+          </button>
+
+          <div class="pm-site-header__primary-menu">
+<nav class="pm-site-header__primary-menu__nav ">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Docs
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">Products</li>
+<li class="link"><a href="/docs/pe/latest">Puppet Enterprise</a></li>
+<li class="link"><a href="/docs/puppet/latest/">Open Source Puppet</a></li>
+<li class="link"><a href="/docs/bolt/latest/">Bolt</a></li>
+<li class="link"><a href="/docs/pdk/latest/">Puppet Development Kit</a></li>
+<li class="link"><a href="/docs/puppetdb/latest/">Puppet DB</a></li>
+<li class="link"><a href="/docs/remediate/latest/">Puppet Remediate</a></li>
+<li class="link"><a href="/docs/vro/">Puppet Plugin for VMware</a></li>
+</ul>
+                </nav><nav class="pm-site-header__primary-menu__nav ">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Support
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">Get</li>
+<li class="link"><a href="/pe/latest">Technical Support Plans</a></li>
+<li class="link"><a href="/puppet/latest/">Support Lifecycle Policy</a></li>
+<li class="link"><a href="/bolt/latest/">New Puppet Enterprise Customer?</a></li>
+</ul>
+                </nav><nav class="pm-site-header__primary-menu__nav is-last-nav-child">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Community
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">About Puppet</li>
+<li class="link"><a href="/pe/latest">TBD...</a></li>
+<li class="link"><a href="/puppet/latest/">TBD...</a></li>
+<li class="heading">Community</li>
+<li class="link"><a href="/pe/latest">Puppet Champions</a></li>
+<li class="link"><a href="/puppet/latest/">Puppet Test Pilots</a></li>
+<li class="link"><a href="/puppet/latest/">Community Office Hours</a></li>
+<li class="link"><a href="/puppet/latest/">Slack Channel</a></li>
+</ul>
+                </nav><button id="pm-site-header__primary-menu__search" class="pm-site-header__primary-menu__search pm-link--unstyled pm-button--empty">
+            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pm-site-header__primary-menu__search-icon">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10.5C0 16.4257 4.73529 21 10.5 21C16.2647 21 21 16.4257 21 10.5C21 4.78218 16.2647 0 10.5 0C4.73529 0 0 4.78218 0 10.5ZM3 10.5C3 14.7327 6.38235 18 10.5 18C14.6176 18 18 14.7327 18 10.5C18 6.41584 14.6176 3 10.5 3C6.38235 3 3 6.41584 3 10.5Z" fill="#222629"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.409 16.409C17.2877 15.5303 18.7123 15.5303 19.591 16.409L23.341 20.159C24.2197 21.0377 24.2197 22.4623 23.341 23.341C22.4623 24.2197 21.0377 24.2197 20.159 23.341L16.409 19.591C15.5303 18.7123 15.5303 17.2877 16.409 16.409Z" fill="#222629"></path>
+            </svg>
+          </button>
+</div> <!-- Content generated with JS -->
+
+        </nav>
+      </div>
+<!-- End pm-site-header__primary -->
+    </section>
+
+    <div class="pm-site-header__divider"></div>
+
+  </div>
+<!-- End pm-site-header__wrapper -->
+</header><!-- End pm-site-header -->
+<div class="container docs-search-inpage">
+  <div class="pm-search-wrapper">
+    <div class="pm-input">
+      <!-- Search Form -->
+      <div id="pm-search-box" class="pm-search-box"></div>
+      <!-- /Search Form -->
+    </div>
+    <div class="pm-grid pm-grid--has-gutter" id="pm-search-content">
+      <div class="pm-column pm-column--base-span-12 pm-pagination-wrapper">
+        <!-- Pagination -->
+        <div id="pm-pagination"></div>
+        <!-- /Pagination -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-6 pm-hits-wrapper">
+        <!-- Search Results -->
+        <ul id="pm-hits"></ul>
+        <!-- /Search Results -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-4 pm-refinement-product-wrapper">
+        <!-- Product Refinement List -->
+        <div id="pm-product" data-title="Product"></div>
+        <!-- /Product Refinement List -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-2 pm-refinement-version-wrapper">
+        <!-- Version Refinement List -->
+        <div id="pm-version" data-title="Version"></div>
+        <!-- /Refinement List -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="content"><div class="row">
+<nav role="toc" class="pm-product-version-select__nav">
+	<div class="pm-product-version-select"> <h4 class="pm-product-version-select__header">PRODUCT AND VERSION</h4>
+  <div class="pm-product-version-select__type">
+    <button id="product-type-select-button" class="pm-product-version-select__type-select-button pm-link pm-link--unstyled pm-button--empty">
+      Current product
+      <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z"></path>
+      </svg>
+    </button>
+
+    <ul class="pm-product-version-select__type-options"></ul>
+<!-- Content Generated by JS -->
+  </div>
+<!-- End pm-product-version-select -->
+
+  <!-- Version Select -->
+  <div class="pm-product-version-select__version">
+    <button id="product-version-select-button" class="pm-product-version-select__version-select-button pm-link pm-link--unstyled pm-button--empty">
+      Current version
+      <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z"></path>
+      </svg>
+    </button>
+
+    <ul class="pm-product-version-select__version-options"></ul>
+<!-- Content Generated by JS -->
+  </div>
+</div>
+
+
+
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./overview_about_pe.html">Welcome to PE</a></li>
+      <li><a href="./pe_architecture_overview.html">PE architecture overview</a></li>
+      <li><a href="./overview_version_table.html">Component versions in recent PE releases</a></li>
+      <li><a href="./overview_getting_support.html">Getting support</a></li>
+      <li><a href="./pe_versioning.html">PE version numbers</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./release_notes.html">New features and enhancements</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./release_notes_known_issues_install.html">Install and upgrade</a></li>
+          <li><a href="./release_notes_known_issues_console.html">PE console and console services</a></li>
+          <li><a href="./release_notes_known_issues_puppetserver.html">Puppet Server</a></li>
+          <li><a href="./release_notes_known_issues_puppetdb.html">Databases and PostgreSQL</a></li>
+          <li><a href="./release_notes_known_issues_app.html">Orchestration services</a></li>
+          <li><a href="./release_notes_known_issues_core.html">PE services and Puppet core</a></li>
+          <li><a href="./release_notes_known_issues_platforms.html">Supported platforms</a></li>
+          <li><a href="./release_notes_known_issues_razor.html">Razor</a></li>
+          <li><a href="./release_notes_known_issues_codemgmt.html">Code management</a></li>
+          <li><a href="./release_notes_known_issues_utf8.html">UTF-8</a></li>
+        </ul>
+      </li>
+      <li><a href="./release_notes_resolved_issues.html">Resolved issues</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li><a href="./puppet_overview.html">Puppet platform documentation</a></li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_install_mono.html">1: Install PE</a></li>
+          <li><a href="./quick_start_install_agents_nix.html">2: Install agents</a></li>
+          <li><a href="./quick_start_module_install_nix.html">3: Module install</a></li>
+          <li><a href="./quick_start_adding_class_nix.html">4: Add classes</a></li>
+          <li><a href="./quick_start_nc_rbac.html">5: Give users access</a></li>
+          <li><a href="./quick_writing_nix.html">6: Write modules</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_install_mono.html">1: Install PE</a></li>
+          <li><a href="./quick_start_install_agents_windows.html">2: Install agents</a></li>
+          <li><a href="./quick_start_module_install_windows.html">3: Module install</a></li>
+          <li><a href="./quick_start_adding_class_windows.html">4: Classify agents</a></li>
+          <li><a href="./quick_start_rbac_windows.html">5: Assign user access</a></li>
+          <li><a href="./quick_writing_windows.html">6: Write modules</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_ntp.html">NTP quick start guide</a></li>
+          <li><a href="./quick_start_dns.html">DNS quick start guide</a></li>
+          <li><a href="./quick_start_ssh.html">SSH quick start guide</a></li>
+          <li><a href="./quick_start_sudo.html">Sudo quick start guide</a></li>
+          <li><a href="./quick_start_firewall.html">Firewall quick start guide</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./windows_installing.html">Installing PE for a Windows environment</a></li>
+      <li><a href="./windows_basic_tasks.html">Basic tasks and concepts in Windows</a></li>
+      <li><a href="./windows_config_mgmnt.html">Managing Windows configurations</a></li>
+      <li><a href="./windows_modules.html">Installing and using Windows modules</a></li>
+      <li><a href="./troubleshooting_windows.html">Troubleshooting Puppet on Windows</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./sys_req_hw.html">Hardware requirements</a></li>
+          <li><a href="./sys_req_os.html">Supported operating systems</a></li>
+          <li><a href="./sys_req_browsers.html">Supported browsers</a></li>
+          <li><a href="./sys_req_sysconfig.html">System config and firewall requirements</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+      <li><a href="./install_basic.html">Downloading PE and installing overview</a></li>
+      <li><a href="./install_pe_mono.html">Web-based installation: monolithic</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_text_mode.html">Text-mode installation overview</a></li>
+          <li><a href="./install_text_mode_mono.html">Text-mode installation: monolithic</a></li>
+          <li><a href="./install_text_mode_split.html">Text-mode installation: split</a></li>
+          <li><a href="./install_pe_conf_param.html">Configuration settings in pe.conf</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_license_key.html">Installing PE license key</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_agents.html">Installing agents: *nix</a></li>
+          <li><a href="./install_windows.html">Installing agents: Windows</a></li>
+          <li><a href="./install_osx.html">Installing agents: Mac OS X</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_eos.html">Installing agents: Arista EOS</a></li>
+          <li><a href="./install_nxos.html">Installing agents: Cisco NS-OX</a></li>
+          <li><a href="./install_iosxr.html">Installing agents: Cisco IOS-XR</a></li>
+          <li><a href="./install_cumulus.html">Installing agents: Cumulus Linux</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_multimaster.html">Installing compile masters</a></li>
+      <li><a href="./install_lei_load.html">Load balancing compile masters</a></li>
+      <li><a href="./install_add_activemq.html">Installing ActiveMQ hubs and spokes</a></li>
+      <li><a href="./install_pe_client_tools.html">Installing PE client tools</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling PE</a></li>
+      <li><a href="./install_separate_pe_postgres.html">Installing standalone PE-PostgreSQL</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./sys_req_extsql.html">External PostgreSQL prep</a></li>
+          <li><a href="./install_ssl_postgresql.html">SSL for PE and external PostgreSQL</a></li>
+          <li><a href="./install_external_postgresql.html">PE and external PostgreSQL without root access</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./upgrade_mono.html">Upgrading PE: monolithic</a></li>
+      <li><a href="./upgrade_split.html">Upgrading PE: split</a></li>
+      <li><a href="./install_upgrading_agents.html">Upgrading PE agents: *nix</a></li>
+      <li><a href="./upgrade_windows.html">Upgrading PE agents: Windows</a></li>
+      <li><a href="./install_lei_upgrade.html">Upgrading large environment installations</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./migrate_pe_catalog_preview.html">Preparing for Migration to PE 2016.4</a></li>
+      <li><a href="./migrate_monolithic.html">Migrating from PE 3.8 to 2016.4: monolithic</a></li>
+      <li><a href="./migrate_notes.html">Migrating: important notes</a></li>
+      <li><a href="./install_upgrading_path_changes.html">Major path changes</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./config_intro.html">Your PE infrastructure</a></li>
+      <li><a href="./config_puppetserver.html">Tuning Puppet Server</a></li>
+      <li><a href="./puppet_server_config_files.html">Puppet Server config files</a></li>
+      <li><a href="./console_config.html">Tuning the console</a></li>
+      <li><a href="./config_puppetdb.html">Tuning PuppetDB</a></li>
+      <li><a href="./config_orchestration.html">Tuning orchestration</a></li>
+      <li><a href="./config_java_args.html">Java arguments For PE</a></li>
+      <li><a href="./config_ulimit.html">Configuring ulimit for PE services</a></li>
+      <li><a href="./config_monolithic.html">Tuning mono installs (reference)</a></li>
+      <li><a href="./config_hocon.html">Writing configuration files</a></li>
+      <li><a href="./analytics_opt_out.html">Opt out of Puppet data collection</a></li>
+      <li><a href="./static_catalogs.html">Static catalogs</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./CM_overview.html">Monitor and analyze infrastructure state</a></li>
+      <li><a href="./CM_graph.html">Explore your catalog with the node graph</a></li>
+      <li><a href="./CM_events.html">Analyze changes across Puppet runs</a></li>
+      <li><a href="./CM_reports.html">Infrastructure reports</a></li>
+      <li><a href="./puppet_server_metrics.html">Monitoring Puppet Server metrics</a></li>
+      <li><a href="./status_api.html">Monitoring PE services</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./console_cert_mgmt.html">Managing node requests</a></li>
+      <li><a href="./console_classes_groups_running_puppet.html">Running Puppet on agent nodes</a></li>
+      <li><a href="./console_classes_groups_getting_started.html">Getting started with classification</a></li>
+      <li><a href="./console_classes_groups.html">Grouping and classifying nodes</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./r_n_p_intro.html">Introduction</a></li>
+          <li><a href="./r_n_p_full_example.html">A complete example</a></li>
+          <li><a href="./r_n_p_profiles.html">Designing advanced profiles</a></li>
+          <li><a href="./r_n_p_roles.html">Designing convenient roles</a></li>
+        </ul>
+      </li>
+      <li><a href="./nodes_viewing.html">Viewing node-specific information</a></li>
+      <li><a href="./console_classes_groups_making_changes.html">Making changes to node groups</a></li>
+      <li><a href="./node_deactivation.html">Removing nodes</a></li>
+      <li><a href="./console_classes_groups_preconfigured_groups.html">Preconfigured node groups</a></li>
+      <li><a href="./console_classes_groups_inheritance.html">How does inheritance work?</a></li>
+      <li><a href="./console_classes_groups_environment_override.html">Working with environments</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./nc_index.html">Endpoints</a></li>
+          <li><a href="./nc_forming_requests.html">Forming node classifier requests</a></li>
+          <li class="has-children">
+            <ul>
+              <li><a href="./nc_groups_example.html">Groups endpoint examples</a></li>
+            </ul>
+          </li>
+          <li><a href="./nc_classes.html">Classes</a></li>
+          <li><a href="./nc_classification.html">Classification</a></li>
+          <li><a href="./nc_commands.html">Commands</a></li>
+          <li><a href="./nc_environments.html">Environments</a></li>
+          <li><a href="./nc_nodes.html">Node history</a></li>
+          <li><a href="./nc_groups_children.html">Group children</a></li>
+          <li><a href="./nc_rules.html">Rules</a></li>
+          <li><a href="./nc_import-hierarchy.html">Importing node classifier hierarchy</a></li>
+          <li><a href="./nc_last_class_update.html">Last class</a></li>
+          <li><a href="./nc_update_classes.html">Updating node classifier classes</a></li>
+          <li><a href="./nc_validate.html">Validating node classifier endpoints</a></li>
+          <li><a href="./nc_errors.html">Node classifier errors</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./console_accessing.html">Accessing the console</a></li>
+      <li><a href="./rbac_intro.html">Role-based access control</a></li>
+      <li><a href="./rbac_ldap.html">Connecting PE with external directory services</a></li>
+      <li><a href="./rbac_permissions.html">About RBAC permissions</a></li>
+      <li><a href="./rbac_user_roles.html">Creating and managing users and user roles</a></li>
+      <li><a href="./rbac_token_auth.html">Token-based authentication</a></li>
+      <li><a href="./deploy_nonroot-agent.html">Running agents without root privileges</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_serviceindex_v1.html">Endpoints</a></li>
+          <li><a href="./rbac_forming_requests_v1.html">Forming RBAC requests</a></li>
+          <li><a href="./rbac_users_v1.html">Users</a></li>
+          <li><a href="./rbac_usergroups_v1.html">User groups</a></li>
+          <li><a href="./rbac_roles_v1.html">Roles</a></li>
+          <li><a href="./rbac_permissionsref_v1.html">Permissions</a></li>
+          <li><a href="./rbac_token_v1.html">Authentication tokens</a></li>
+          <li><a href="./rbac_dsref_v1.html">Directory service</a></li>
+          <li><a href="./rbac_passwords_v1.html">Passwords</a></li>
+          <li><a href="./rbac_serviceerrors_v1.html">Errors</a></li>
+          <li><a href="./rbac_config_v1.html">Configuration options</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_serviceindex_v2.html">Endpoints</a></li>
+          <li><a href="./rbac_revoke_token_v2.html">Revoke tokens</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_activityapis.html">Endpoints</a></li>
+          <li><a href="./rbac_activityreporting.html">Activity reporting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./app_orchestration_overview.html">Application orchestration: Overview</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./app_orchestration_workflow.html">Application orchestration workflow</a></li>
+          <li><a href="./app_orchestration_app_definition.html">Creating application definitions</a></li>
+          <li><a href="./app_orchestration_declare_instance.html">Declaring application instances</a></li>
+          <li><a href="./app_orchestration_produce_consume.html">Producing and consuming service resources</a></li>
+          <li><a href="./app_orchestration_writing_service_resources.html">Writing custom service resource types</a></li>
+          <li><a href="./app_orchestration_availability_tests.html">Availability tests</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./direct_puppet_workflow.html">Direct Puppet: a workflow</a></li>
+      <li><a href="./orchestrator_intro.html">Puppet orchestrator: overview</a></li>
+      <li><a href="./orchestrator_install.html">Configuring Puppet orchestrator</a></li>
+      <li><a href="./orchestrator_app.html">Reviewing applications</a></li>
+      <li><a href="./orchestrator_job_plan.html">Checking a Puppet job plan</a></li>
+      <li><a href="./orchestrator_job_run.html">Running Puppet jobs</a></li>
+      <li><a href="./orchestrator_job_status_view.html">Reviewing Puppet jobs</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./orchestrator_api_endpoints.html">Endpoints</a></li>
+          <li><a href="./orchestrator_api_requests.html">Forming requests</a></li>
+          <li><a href="./orchestrator_api_commands.html">Commands</a></li>
+          <li><a href="./orchestrator_api_events.html">Events</a></li>
+          <li><a href="./orchestrator_api_jobs.html">Jobs</a></li>
+          <li><a href="./orchestrator_api_root.html">Root</a></li>
+          <li><a href="./orchestrator_api_errors.html">Errors</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./cmgmt_managing_code.html">Managing and deploying Puppet code</a></li>
+      <li><a href="./cmgmt_control_repo.html">Setting up a control repository</a></li>
+      <li><a href="./cmgmt_puppetfile.html">Managing environment content with Puppetfiles</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./code_mgr.html">Managing code with Code Manager</a></li>
+          <li><a href="./code_mgr_config.html">Configuring Code Manager</a></li>
+          <li><a href="./code_mgr_custom.html">Customizing Code Manager configuration</a></li>
+          <li><a href="./code_mgr_cli.html">Triggering Code Manager from the command line</a></li>
+          <li><a href="./code_mgr_webhook.html">Triggering Code Manager with a webhook</a></li>
+          <li><a href="./code_mgr_scripts.html">Triggering Code Manager with custom scripts</a></li>
+          <li><a href="./code_mgr_troubleshoot.html">Troubleshooting Code Manager</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./r10k.html">Managing code with r10k</a></li>
+          <li><a href="./r10k_config.html">Configuring r10k</a></li>
+          <li><a href="./r10k_custom.html">Customizing r10k configuration</a></li>
+          <li><a href="./r10k_run.html">Deploying environments with r10k</a></li>
+          <li><a href="./r10k_reference.html">r10k subcommand reference</a></li>
+        </ul>
+      </li>
+      <li><a href="./cmgmt_filesync.html">About file sync</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item active"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./razor_intro.html">Bare-metal provisioning with Razor</a></li>
+      <li><a href="./razor_prereqs.html">Setting up a Razor environment</a></li>
+      <li><a href="./razor_install.html">Installing Razor</a></li>
+      <li class="has-children active">
+        <ul>
+          <li><a href="./razor_client_commands.html">Razor client commands</a></li>
+        </ul>
+      </li>
+      <li><a href="./razor_brownfield.html">Protecting existing nodes</a></li>
+      <li><a href="./razor_using.html">Provisioning a node</a></li>
+      <li><a href="./razor_windows_install.html">Provisioning a Windows node</a></li>
+      <li><a href="./razor_microkernel_extension.html">Provisioning with custom facts</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./razor_repos.html">Repositories</a></li>
+          <li><a href="./razor_tasks.html">Tasks</a></li>
+          <li><a href="./razor_tags.html">Tags</a></li>
+          <li><a href="./razor_policies.html">Policies</a></li>
+          <li><a href="./razor_brokers.html">Brokers</a></li>
+          <li><a href="./razor_hooks.html">Hooks</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./razor_reference.html">API reference</a></li>
+        </ul>
+      </li>
+      <li><a href="./razor_upgrade.html">Upgrading Razor</a></li>
+      <li><a href="./razor_uninstall.html">Uninstalling Razor</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./trouble_regenerate_certs_monolithic.html">Regenerating certs: mono</a></li>
+          <li><a href="./trouble_regenerate_certs_split.html">Regenerating certs: splits</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./regenerate_certs_master.html">Regenerating certs for the Puppet master</a></li>
+          <li><a href="./regenerate_certs_puppetdb.html">Regenerating certs for PuppetDB</a></li>
+          <li><a href="./regenerate_certs_console.html">Regenerating certs for the PE console</a></li>
+        </ul>
+      </li>
+      <li><a href="./agent_cert_regen.html">Regenerating a Puppet agent certificate</a></li>
+      <li><a href="./compile_master_cert_regen.html">Regenerating a compile master certificate</a></li>
+      <li><a href="./external_ca.html">Using an external certificate authority with PE</a></li>
+      <li><a href="./custom_console_cert.html">Configuring the PE console to use a custom SSL certificate</a></li>
+      <li><a href="./trouble_dh_generate.html">Custom Diffie-Hellman param file generation</a></li>
+      <li><a href="./install_ssl_postgresql.html">SSL for PE and external PostgreSQL</a></li>
+      <li><a href="./disable_tlsv1.html">Disable TLSV1 in PE</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./api_index.html">Index of Puppet APIs</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./mco_overview.html">Overview</a></li>
+      <li><a href="./mco_invoke_cli.html">Invoking actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./mco_actions.html">List of built-in actions</a></li>
+      <li><a href="./mco_adding_actions.html">Adding new actions</a></li>
+      <li><a href="./mco_config.html">Configuring MCollective</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./maintain_console-db.html">PE database maintenance</a></li>
+      <li><a href="./maintain_backup_restore.html">Back up and restore PE</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./trouble_install.html">Troubleshooting the installer</a></li>
+      <li><a href="./trouble_comms.html">Troubleshooting connections</a></li>
+      <li><a href="./code_mgr_troubleshoot.html">Troubleshooting Code Manager</a></li>
+      <li><a href="./trouble_console-db.html">Troubleshooting the databases</a></li>
+      <li><a href="./trouble_puppet.html">Troubleshooting Puppet core</a></li>
+      <li><a href="./trouble_orchestration.html">Troubleshooting MCollective</a></li>
+      <li><a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./compliance_alt.html">Compliance alternate workflow</a></li>
+    </ul>
+  </li></ul>
+
+
+
+
+</nav><main role="main" class="col-lg-9"><article role="article"><h1>Razor client commands</h1>
+<p>Use the Razor client to interact with Razor and provision bare metal nodes.</p>
+<h2 id="configuration-commands">Configuration commands</h2>
+<p>Razor configuration is pulled from a configuration file controlled by PE. You can change configuration values in the console with class parameters of the <code>pe_razor</code> module.</p>
+<p><strong>Note</strong>: In order for configuration changes to take effect, you must restart the Razor service by running <code>service pe-razor-server restart</code> on the Razor server.</p>
+<h3 id="config"><code>config</code></h3>
+<p>The <code>config</code> command displays details about your Razor configuration.</p>
+<p><strong>Note</strong>: Properties specified in the <code>api_config_blacklist</code> aren’t returned by the <code>config</code> command.</p>
+<h4 id="sample-command">Sample command</h4>
+<p>To view details about your Razor configuration:</p>
+<pre><code>razor config
+</code></pre>
+<h2 id="node-commands">Node commands</h2>
+<p>Nodes are created either through the node boot endpoint, when the node initiates its first web request to the Razor server, or through the <code>register-node</code> command. Both methods create a stub for the node in the Razor database. When the node boots into the microkernel, it gathers facts and reports them to the node checkin endpoint, linking new facts to the stub. At that point, the node is fully registered in the Razor system and goes through the binding process.</p>
+<h3 id="register-node"><code>register-node</code></h3>
+<p>The <code>register-node</code> command enables you to identify a node before it’s discovered. This can be useful to apply metadata before the node boots up, or to indicate to Razor that it shouldn’t provision – or reprovision – a node that’s already installed.</p>
+<h4 id="command-attributes">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>hw_info</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Hardware information about the node.</p>
+     <p>You must include enough information that the node can be identified by hardware information sent by the firmware when the node boots. This usually includes the MAC addresses of all network interfaces.</p>
+<p>This attribute can include some or all of these entries:
+     </p>
+<ul>
+      <li>
+<code>netN</code> — The MAC address of each network interface. The order of addresses isn't significant.</li>
+      <li>
+<code>serial</code> — DMI serial number of the node.</li>
+      <li>
+<code>asset</code> — DMI asset number of the node.</li>
+      <li>
+<code>uuid</code> — DMI universally unique identifier of the node.</li>
+     </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>installed</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<code>true</code> to indicate that the node shouldn't be provisioned — or reprovisioned — by Razor.</td>
+  </tr>
+</table>
+<h4 id="sample-command-1">Sample command</h4>
+<p>To register an installed machine before it’s booted, and prevent reprovisioning:</p>
+<pre><code>  razor register-node --hw-info net0=78:31:c1:be:c8:00 \
+      --hw-info net1=72:00:01:f2:13:f0 \
+      --hw-info net2=72:00:01:f2:13:f1 \
+      --hw-info serial=xxxxxxxxxxx \
+      --hw-info asset=Asset-1234567890 \
+      --hw-info uuid="Not Settable" \
+      --installed
+</code></pre>
+<h3 id="set-node-hw-info"><code>set-node-hw-info</code></h3>
+<p>The <code>set-node-hw-info</code> command sets or updates the hardware info for a specified node. This is useful when a node’s hardware changes, such as when you replace a network card.</p>
+<h4 id="command-attributes-1">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>node</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the node to update.</td>
+  </tr>
+  <tr>
+    <td>hw_info</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Hardware information about the node.</p> <p>This attribute can include some or all of these entries:
+     </p>
+<ul>
+      <li>
+<code>netN</code> — The MAC address of each network interface. The order of addresses isn't significant.</li>
+      <li>
+<code>serial</code> — DMI serial number of the node.</li>
+      <li>
+<code>asset</code> — DMI asset number of the node.</li>
+      <li>
+<code>uuid</code> — DMI universally unique identifier of the node.</li>
+     </ul>
+    </td>
+  </tr>
+</table>
+<h4 id="sample-command-2">Sample command</h4>
+<p>To update node172 with new hardware information:</p>
+<pre><code>razor set-node-hw-info --node node172 \
+  --hw-info net0=78:31:c1:be:c8:00 \
+  --hw-info net1=72:00:01:f2:13:f0 \
+  --hw-info net2=72:00:01:f2:13:f1 \
+  --hw-info serial=xxxxxxxxxxx \
+  --hw-info asset=Asset-1234567890 \
+  --hw-info uuid="Not Settable"
+</code></pre>
+<h3 id="delete-node"><code>delete-node</code></h3>
+<p>The <code>delete-node</code> command deletes a specified node from the Razor database. The <code>delete-node</code> command is similar to <code>reinstall-node</code>, except that <code>delete-node</code> doesn’t retain log information or the node number.</p>
+<blockquote>
+  <p><strong>Note</strong>: If the deleted node boots again at some point, Razor automatically recreates the node as if it were the first time it contacted the Razor server.</p>
+</blockquote>
+<h4 id="command-attributes-2">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the node to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-command-3">Sample command</h4>
+<p>To delete node17:</p>
+<pre><code>razor delete-node --name node17
+</code></pre>
+<h3 id="reinstall-node"><code>reinstall-node</code></h3>
+<p>The <code>reinstall-node</code> command clears a node’s <code>installed</code> flag and – by default – removes its association with policies. You can use the <code>same-policy</code> attribute to retain the assigned policy.</p>
+<p>After restart, the node boots into the microkernel, goes through
+discovery and tag matching, and can bind to another policy for reinstallation. This command doesn’t change the node’s metadata or facts.</p>
+<h4 id="command-attributes-3">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the node to reinstall.</td>
+  </tr>
+  <tr>
+    <td>same-policy</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p><code>true</code> to retain the same policy for reinstallation.</p>
+     <p>If omitted, the node can bind to a different policy when reinstalled.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-commands">Sample commands</h4>
+<p>To reinstall node17:</p>
+<pre><code>razor reinstall-node --name node17
+</code></pre>
+<p>To reinstall node17 and retain its assigned policy:</p>
+<pre><code>razor reinstall-node --name node17 --same-policy
+</code></pre>
+<h2 id="ipmi-commands">IPMI commands</h2>
+<p>IPMI commands are node commands based on the Intelligent Platform Management Interface.</p>
+<blockquote>
+  <p><strong>Note</strong>: You must install the <code>ipmitool</code> on the Razor server before using IPMI commands. To install the tool, run <code>yum install ipmitool -y</code>.</p>
+</blockquote>
+<h3 id="set-node-ipmi-credentials"><code>set-node-ipmi-credentials</code></h3>
+<p>The <code>set-node-ipmi-credentials</code> sets or updates the host name, user name, or password for connecting with a BMC/LOM/IPMI LAN or LANplus service.</p>
+<p>The command works only with remote IPMI targets, not local targets.</p>
+<p>After IPMI credentials have been set up for a node, you can use the <code>reboot-node</code> and <code>set-node-desired-power-state</code> commands.</p>
+<h4 id="command-attributes-4">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the node to update.</td>
+  </tr>
+  <tr>
+    <td>ipmi_hostname</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>IPMI host name or IP address of the BMC of the host.</td>
+  </tr>
+  <tr>
+    <td>ipmi_username</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>IPMI LANplus username, if any, for this BMC.</td>
+  </tr>
+  <tr>
+    <td>ipmi_password</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>IPMI LANplus password, if any, for this BMC.</td>
+  </tr>
+</table>
+<h4 id="sample-command-4">Sample command</h4>
+<p>To set IPMI credentials for <code>node17</code>:</p>
+<pre><code>razor set-node-ipmi-credentials --name node17 \
+  --ipmi-hostname bmc17.example.com \
+  --ipmi-username null \
+  --ipmi-password sekretskwirrl
+</code></pre>
+<h3 id="reboot-node"><code>reboot-node</code></h3>
+<p>The <code>reboot-node</code> command triggers a hard power cycle on a specified node using IPMI credentials.</p>
+<blockquote>
+  <p><strong>Note</strong>: You must specify IPMI credentials before using the <code>reboot-node</code> command.</p>
+</blockquote>
+<p>If an execution slot isn’t available on the target node, the <code>reboot-node</code> command is queued and runs as soon as a slot is available. There are no limits on how many commands you can queue up, how frequently a node can be rebooted, or how long a command can stay in the queue. If you restart your Razor server before queued commands are executed, they remain in the queue and run after the server restarts.</p>
+<p>The <code>reboot-node</code> command is not integrated with IPMI power state monitoring, so you can’t see power transitions in the record or when polling the node object.</p>
+<h4 id="command-attributes-5">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the node to reboot.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-command-5">Sample command</h4>
+<p>To queue a node reboot:</p>
+<pre><code>razor reboot-node --name node1
+</code></pre>
+<h3 id="set-node-desired-power-state"><code>set-node-desired-power-state</code></h3>
+<p>The <code>set-node-desired-power-state</code> command specifies whether you want a node to remain powered off or on. By default, Razor checks node power state every few minutes in the
+background. If it detects a node in a non-desired state, Razor issues an IPMI command directing the node to its desired state.</p>
+<blockquote>
+  <p><strong>Note</strong>: You must specify IPMI credentials before using the <code>set-node-desired-power-state</code> command.</p>
+</blockquote>
+<h4 id="command-attributes-6">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the node to power off or on.</td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">2</td>
+      <td>Desired power state: <code>on</code>, <code>off</code>, or <code>null</code>, meaning that Razor shouldn’t enforce a power state.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-1">Sample commands</h4>
+<p>To tell Razor you want node1234 powered on and kept on:</p>
+<pre><code>razor set-node-desired-power-state --name node1234 \
+  --to on
+</code></pre>
+<h2 id="node-metadata-commands">Node metadata commands</h2>
+<h3 id="update-node-metadata"><code>update-node-metadata</code></h3>
+<p>The <code>update-node-metadata</code> command sets or updates a single metadata key.</p>
+<h4 id="command-attributes-7">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>node</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the node for which to modify metadata.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">2</td>
+      <td>Name of the key to modify.</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">3</td>
+      <td>New value for the key.</td>
+    </tr>
+    <tr>
+      <td>no_replace</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td>
+<code>true</code> to cancel the update operation if the specified key is already present.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-2">Sample commands</h4>
+<p>To update the <code>my_key</code> key for a node:</p>
+<pre><code>razor update-node-metadata --node node1 \
+  --key my_key --value twelve
+</code></pre>
+<h3 id="modify-node-metadata"><code>modify-node-metadata</code></h3>
+<p>The <code>modify-node-metadata</code> command sets, updates, or clears metadata key-value pairs.</p>
+<h4 id="command-attributes-8">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>node</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the node for which to modify metadata.</td>
+  </tr>
+  <tr>
+    <td>update</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>Key and value pair to update.</td>
+  </tr>
+  <tr>
+    <td>remove</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>Key and value pair to remove.</td>
+  </tr>
+  <tr>
+    <td>clear</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>
+<code>true</code> to clear all metadata.</td>
+  </tr>
+  <tr>
+    <td>no_replace</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<code>true</code> to cancel the update operation if the specified key is already present.</td>
+  </tr>
+</table>
+<p>* You must specify one of three attributes: <code>update</code>, <code>remove</code>, or <code>clear</code>.</p>
+<h4 id="sample-commands-3">Sample commands</h4>
+<p>To add values for key1 and key2 to a node, but not if they are already set, and to remove key3 and key4:</p>
+<pre><code>  razor modify-node-metadata --node node1 --update key1=value1 \
+      --update key2='[ "val1", "val2", "val3" ]' --remove key3 --remove key4
+      --noreplace
+</code></pre>
+<p>To remove all node metadata:</p>
+<pre><code>  razor modify-node-metadata --node node1 --clear
+</code></pre>
+<h3 id="remove-node-metadata"><code>remove-node-metadata</code></h3>
+<p>The <code>remove-node-metadata</code> command removes either a single metadata entry or all metadata entries on a node.</p>
+<h4 id="command-attributes-9">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>node</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the node for which to modify metadata.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;">2</td>
+    <td>Name of the key to remove.</td>
+  </tr>
+  <tr>
+    <td>all</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>
+<code>true</code> to remove all metadata about the node.</td>
+  </tr>
+</table>
+<p>* You must specify one of two attributes: <code>key</code> or <code>all</code>.</p>
+<h4 id="sample-commands-4">Sample commands</h4>
+<p>To remove a single key from a node:</p>
+<pre><code>  razor remove-node-metadata --node node1 --key my_key
+</code></pre>
+<p>To remove all keys from a node:</p>
+<pre><code>  razor remove-node-metadata --node node1 --all
+</code></pre>
+<h2 id="repository-commands">Repository commands</h2>
+<h3 id="create-repo"><code>create-repo</code></h3>
+<p>The <code>create-repo</code> command creates a new repository. The repository can contain the content to install a node, or it can point to an existing online repository.</p>
+<p>You can create three types of repositories:</p>
+<ul>
+  <li>Those that reference content available on another server, for example, on a mirror you maintain (<code>url</code>).</li>
+  <li>Those where Razor unpacks ISOs for you and serves their contents (<code>iso_url</code>).</li>
+  <li>Those where Razor creates a stub directory that you can manually fill with content (<code>no_content</code>).</li>
+</ul>
+<h4 id="command-attributes-10">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name for the new repository.</td>
+  </tr>
+  <tr>
+    <td>url</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>URL of a remote repository.</td>
+  </tr>
+  <tr>
+    <td>iso_url</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>URL of an ISO image to download and unpack in a new, local repository.</p>
+     <p>You can use an HTTP or HTTPS URL, or a file URL. If you're using a file URL, manually place the ISO image on the Razor server before you call the command.</p>
+     <p>If you supply the <code>iso_url</code> attribute to create a repository, you can delete it from the server later using the <code>delete-repo</code> command.</p>
+</td>
+  </tr>
+    <td>no_content</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Creates a stub directory in the repo store where you can manually extract an image.</p>
+     <p>After this command finishes, you can log into your Razor server and fill the repository directory with the content, for example by loopback-mounting the install media and copying it into the directory. The repository directory is specified by the <code>repo_store_root</code> class parameter of the <code>pe_razor</code> module. By default, the directory is <code>/opt/puppetlabs/server/data/razor-server/repo</code>.</p>
+     <p>This attribute is usually necessary for Windows install media, because the library that Razor uses to unpack ISO images doesn't support Windows ISO images.</p>
+</td>
+  &lt;/tr&gt;
+  <tr>
+    <td>task</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the default task that installs nodes from this repository.</p>
+     <p>We recommend that the task match the operating system specified by the <code>url</code> or <code>iso_url</code>.</p>
+     <p>You can override this paramater at the policy level.</p>
+     <p><b>Tip</b>: You can use <code>razor tasks</code> to see which tasks are available on your server.</p>
+</td>
+  </tr>
+</table>
+<p>* You must specify one of the attributes <code>url</code>, <code>iso_url</code>, or <code>no_content</code>.</p>
+<h4 id="sample-commands-5">Sample commands</h4>
+<p>To create a repository from an ISO image, which is downloaded and unpacked
+  by the Razor server in the background:</p>
+<pre><code>  razor create-repo --name fedora21 \
+      --iso-url http://example.com/Fedora-21-x86_64-DVD.iso \
+      --task fedora
+</code></pre>
+<p>To unpack an ISO image from a file on a server without uploading the file from the client:</p>
+<pre><code>  razor create-repo --name fedora21 \
+      --iso-url file:///tmp/Fedora-21-x86_64-DVD.iso \
+      --task fedora
+</code></pre>
+<p>To point to a resource without downloading content to the Razor server:</p>
+<pre><code>  razor create-repo --name fedora21 --url \
+      http://mirrors.n-ix.net/fedora/linux/releases/21/Server/x86_64/os/ \
+      --task fedora
+</code></pre>
+<p>To create a stub directory that you can manually fill with content:</p>
+<pre><code>  razor create-repo --name fedora21 --no-content --task Fedora
+</code></pre>
+<h3 id="update-repo-task"><code>update-repo-task</code></h3>
+<p>The <code>update-repo-task</code> command specifies the task that installs the contents of the repository.</p>
+<p>If a node is currently provisioning against the repository when you run this command, provisioning might fail.</p>
+<h4 id="command-attributes-11">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>repo</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of an existing repository to update.</td>
+    </tr>
+    <tr>
+      <td>task</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">2</td>
+      <td>Name of the task to be used by the repository.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-6">Sample commands</h4>
+<p>To update the <code>my_repo</code> repository to the task <code>other_task</code>:</p>
+<pre><code>razor update-repo-task --repo my_repo --task other_task
+</code></pre>
+<h3 id="delete-repo"><code>delete-repo</code></h3>
+<p>The <code>delete-repo</code> command deletes a specified repository from the Razor database.</p>
+<p>Before deleting a repository, remove any references to it in existing policies. This command fails if the repository is in use by an existing policy.</p>
+<p>If you supplied the <code>iso_url</code> property when you created the repository, the folder is also deleted from the server. If you didn’t supply the <code>iso_url</code> property, content remains in the repository directory.</p>
+<h4 id="command-attributes-12">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the repository to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-7">Sample commands</h4>
+<p>To delete an obsolete repository:</p>
+<pre><code>razor delete-repo --name my_obsolete_repo
+</code></pre>
+<h2 id="task-commands">Task commands</h2>
+<h3 id="create-task"><code>create-task</code></h3>
+<p>The <code>create-task</code> command creates a task in the Razor database. This command is an alternative to manually placing task files in the <code>task_path</code>. If you anticipate needing to make changes to tasks, we recommend the disk-backed task approach.</p>
+<p>Razor has a set of tasks for installing on supported operating systems. See <a href="https://github.com/puppetlabs/razor-server/tree/master/tasks">the razor-server Github page</a> for more information.</p>
+<h4 id="command-attributes-13">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name for the new task.</td>
+  </tr>
+  <tr>
+    <td>os</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>Name of the OS installed by the task.</td>
+  </tr>
+  <tr>
+    <td>templates</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>Named templates used for task stages.</td>
+  </tr>
+  <tr>
+    <td>boot_seq</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>List of key-value pairs that describe templates in the order they're installed.</p>
+     <p>Use the optional <code>default</code> hash key to specify the default template to use when no other template applies.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-command-6">Sample command</h4>
+<p>To define the RedHat task included with Razor:</p>
+<pre><code>razor create-task --name redhat-new --os "Red Hat Enterprise Linux" \
+  --description "A basic installer for RHEL6" \
+  --boot-seq 1=boot_install --boot_seq default=boot_local \
+  --templates "boot_install=#!ipxe\necho Razor &lt;%= task.label %&gt; task boot_call\necho Installation node: &lt;%= node_url  %&gt;\necho Installation repo: &lt;%= repo_url %&gt;\n\nsleep 3\nkernel &lt;%= repo_url("/isolinux/vmlinuz") %&gt; &lt;%= render_template("kernel_args").strip %&gt; || goto error\ninitrd &lt;%= repo_url("/isolinux/initrd.img") %&gt; || goto error\nboot\n:error\nprompt --key s --timeout 60 ERROR, hit 's' for the iPXE shell; reboot in 60 seconds &amp;&amp; shell || reboot\n" \
+  --templates kernel_args="ks=&lt;%= file_url("kickstart") %&gt; network ksdevice=bootif BOOTIF=01-${netX/mac}" \
+  --templates kickstart="#!/bin/bash\n# Kickstart for RHEL/CentOS 6\n# see: http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-kickstart2-options.html\n\ninstall\nurl --url=&lt;%= repo_url %&gt;\ncmdline\nlang en_US.UTF-8\nkeyboard us\nrootpw &lt;%= node.root_password %&gt;\nnetwork --hostname &lt;%= node.hostname %&gt;\nfirewall --enabled --ssh\nauthconfig --enableshadow --passalgo=sha512 --enablefingerprint\ntimezone --utc America/Los_Angeles\n# Avoid having 'rhgb quiet' on the boot line\nbootloader --location=mbr --append="crashkernel=auto"\n# The following is the partition information you requested\n# Note that any partitions you deleted are not expressed\n# here so unless you clear all partitions first, this is\n# not guaranteed to work\nzerombr\nclearpart --all --initlabel\nautopart\n# reboot automatically\nreboot\n\n# following is MINIMAL https://partner-bugzilla.redhat.com/show_bug.cgi?id=593309\n%packages --nobase\n@core\n\n%end\n\n%post --log=/var/log/razor.log\necho Kickstart post\ncurl -s -o /root/razor_postinstall.sh &lt;%= file_url("post_install") %&gt;\n\n# Run razor_postinstall.sh on next boot via rc.local\nif [ ! -f /etc/rc.d/rc.local ]; then\n  # On systems using systemd /etc/rc.d/rc.local does not exist at all\n  # though systemd is set up to run the file if it exists\n  touch /etc/rc.d/rc.local\n  chmod a+x /etc/rc.d/rc.local\nfi\necho bash /root/razor_postinstall.sh &gt;&gt; /etc/rc.d/rc.local\nchmod +x /root/razor_postinstall.sh\n\ncurl -s &lt;%= stage_done_url("kickstart") %&gt;\n%end\n############\n" \
+  --templates post_install="#!/bin/bash\n\nexec &gt;&gt; /var/log/razor.log 2&gt;&amp;1\n\necho "Starting post_install"\n\n# Wait for network to come up when using NetworkManager.\nif service NetworkManager status &gt;/dev/null 2&gt;&amp;1 &amp;&amp; type -P nm-online; then\n    nm-online -q --timeout=10 || nm-online -q -x --timeout=30\n    [ "$?" -eq 0 ] || exit 1\nfi\n\n&lt;%= render_template("set_hostname") %&gt;\n\n&lt;%= render_template("store_ip") %&gt;\n\n&lt;%= render_template("os_complete") %&gt;\n\n# We are done\ncurl -s &lt;%= stage_done_url("finished") %&gt;\n"
+</code></pre>
+<h2 id="tag-commands">Tag commands</h2>
+<h3 id="create-tag"><code>create-tag</code></h3>
+<p>The <code>create-tag</code> command creates a new tag and sets the rules used to apply the tag to nodes.</p>
+<h4 id="command-attributes-14">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name for the new tag.</td>
+  </tr>
+  <tr>
+    <td>rule</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>
+<p>Case-sensitive match expression that applies the tag to a node if the expression evaluates as true.</p>
+     <p>For more information on tag rules, see <a href="./razor_tags.html">Tags</a>.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-commands-8">Sample commands</h4>
+<p>To create a tag that’s applied to nodes with two processors:</p>
+<pre><code>  razor create-tag --name small --rule '["=", ["fact", "processorcount"], "2"]'
+</code></pre>
+<h3 id="update-tag-rule"><code>update-tag-rule</code></h3>
+<p>The <code>update-tag-rule</code> changes the rule of a specified tag.</p>
+<p>After updating a tag, Razor reevaluates the tag against all nodes. With the <code>--force</code> flag, the tag is reevaluated even if it’s used by policies.</p>
+<h4 id="command-attributes-15">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of an existing tag to update.</td>
+  </tr>
+  <tr>
+    <td>rule</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>
+<p>Case-sensitive match expression that applies the tag to a node if the expression evaluates as true.</p>
+     <p>For more information on tag rules, see <a href="./razor_tags.html">Tags</a>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>force</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>Reevaluates tags used by an existing policy.</td>
+  </tr>
+</table>
+<h4 id="sample-command-7">Sample command</h4>
+<p>To update a tag rule and reevaluate nodes with the tag, even if the tag is used by a policy:</p>
+<pre><code>razor update-tag-rule --name small --force \
+      --rule '["&lt;=", ["fact", "processorcount"], "2"]'
+</code></pre>
+<h3 id="delete-tag"><code>delete-tag</code></h3>
+<p>The <code>delete-tag</code> command deletes a specified tag.</p>
+<p>With the <code>--force</code> flag, the tag is deleted and removed from any policies that use it.</p>
+<h4 id="command-attributes-16">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of an existing tag to delete.</td>
+    </tr>
+    <tr>
+      <td>force</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td>Deletes tags used by an existing policy.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-9">Sample commands</h4>
+<p>To delete an unused tag:</p>
+<pre><code>razor delete-tag --name my_obsolete_tag
+</code></pre>
+<p>To delete a tag whether or not it’s used:</p>
+<pre><code>razor delete-tag --name my_obsolete_tag --force
+</code></pre>
+<h2 id="policy-commands">Policy commands</h2>
+<p>Policies govern how nodes are provisioned. Razor maintains an ordered table of policies. When a node boots, Razor traverses the table to find the first eligible policy for that node. A policy might be ineligible for binding to a node if the node doesn’t contain all of the tags on the policy, if the policy is disabled, or if the policy has reached its maximum for the number of allowed nodes.</p>
+<p>When you list the <code>policies</code> collection, the list is in the order that
+Razor checks policies against nodes.</p>
+<h3 id="create-policy"><code>create-policy</code></h3>
+<p>The <code>create-policy</code> command creates a new policy that determines how nodes are provisioned. Razor maintains an ordered table of policies, and applies the first policy that matches a node.</p>
+<blockquote>
+  <p><strong>Tip</strong>: You can create policies in a JSON file to make saving and modifying them easier. To apply a policy with a JSON file, use <code>razor create-policy --json &lt;FILENAME&gt;.json</code>.</p>
+</blockquote>
+<h4 id="command-attributes-17">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name for the new policy.</td>
+  </tr>
+  <tr>
+    <td>hostname</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Pattern for host names of nodes bound to this policy.</p>
+     <p>The <code>${id}</code> references each node's internal ID number.</p>
+</td>
+  </tr>
+  <tr>
+    <td>root_password</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Root password for the new system.</p>
+     <p>Valid values depend on how the task renders passwords.</p>
+</td>
+  </tr>
+  <tr>
+    <td>enabled</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p><code>true</code> if the policy is enabled upon creation.</p>
+     <p>If omitted, the policy is enabled.</p>
+</td>
+  </tr>
+  <tr>
+    <td>max_count</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Number indicating how many nodes can bind to the policy.</p>
+     <p>If omitted, the policy can bind to an unlimited number of nodes.</p>
+</td>
+  </tr>
+  <tr>
+    <td>before</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the policy that this policy is placed before in the policy list.</p>
+     <p>This attribute can't be used with <code>after</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>after</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the policy that this policy is placed after in the policy list.</p>
+     <p>This attribute can't be used with <code>before</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>tags</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Names of tags that a node must match to qualify for the policy.</p>
+     <p>A node must have all tags specified for the policy to apply.</p>
+</td>
+  </tr>
+  <tr>
+    <td>repo</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>Name of the repository that contains the operating system installed by this policy.</td>
+  </tr>
+  <tr>
+    <td>broker</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the broker to use after provisioning to hand off the node to a management system.</p>
+     <p>If you don't want to hand off management, use <code>noop</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>task</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the task to install nodes that bind to this policy.</p>
+     <p>If omitted, the <code>task</code> property of the policy's <code>repo</code> is used.</p>
+</td>
+  </tr>
+  <tr>
+    <td>node_metadata</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Metadata to apply to the node when this policy is bound.</p>
+     <p>Existing metadata is not overwritten.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-command-8">Sample command</h4>
+<p>To create a policy that installs CentOS 6.4:</p>
+<pre><code>  razor create-policy --name centos-for-small \
+--repo centos-6.4 --task centos --broker noop \
+--enabled --hostname "host${id}.example.com" \
+--root-password secret --max-count 20 \
+--before "other policy" --tag small --node-metadata key=value
+</code></pre>
+<h3 id="move-policy"><code>move-policy</code></h3>
+<p>The <code>move-policy</code> command lets you change the order in which Razor considers policies for matching against nodes.</p>
+<h4 id="command-attributes-18">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the policy to move.</td>
+  </tr>
+  <tr>
+    <td>before</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>Name of the policy that this policy is placed before in the policy list.</td>
+  </tr>
+  <tr>
+    <td>after</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>Name of the policy that this policy is placed after in the policy list.</td>
+  </tr>
+</table>
+<p>* You must specify one of the two ordering attributes, <code>before</code> or <code>after</code>.</p>
+<h4 id="sample-commands-10">Sample commands</h4>
+<p>To move a policy before another policy:</p>
+<pre><code>razor move-policy --name policy --before succeedingpolicy
+</code></pre>
+<p>To move a policy after another policy:</p>
+<pre><code>razor move-policy --name policy --after precedingpolicy
+</code></pre>
+<h3 id="enable-policy-and-disable-policy">
+<code>enable-policy</code> and <code>disable-policy</code>
+</h3>
+<p>The <code>disable-policy</code> command prevents the specified policy from binding to any nodes. This can be useful if you want to temporarily inactivate a policy without deleting it. For example, you can use <code>disable-policy</code> to prevent nodes from installing a certain OS for a short period.</p>
+<p>The <code>enable-policy</code> command reactivates a disabled policy.</p>
+<h4 id="command-attributes-19">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the policy to disable or enable.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-11">Sample commands</h4>
+<p>To disable a policy:</p>
+<pre><code>razor disable-policy --name my_policy
+</code></pre>
+<p>To enable a policy:</p>
+<pre><code>razor enable-policy --name my_policy
+</code></pre>
+<h3 id="modify-policy-max-count"><code>modify-policy-max-count</code></h3>
+<p>The <code>modify-policy-max-count</code> command sets or removes the limit on the maximum number of nodes that can bind to a policy.</p>
+<blockquote>
+  <p><strong>Note</strong>: To reduce the number of nodes a policy can bind to, you must use the <code>reinstall-node</code> command to mark nodes as uninstalled.</p>
+</blockquote>
+<h4 id="command-attributes-20">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the policy to modify.</td>
+  </tr>
+  <tr>
+    <td>max_count</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;">2</td>
+    <td>Maximum number of nodes the policy can bind to.</td>
+  </tr>
+  <tr>
+    <td>no_max_count</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>Removes any limits on the number of nodes that can bind to the policy.</td>
+  </tr>
+</table>
+<p>*You must specify one of the two count attributes, <code>max_count</code> or <code>no_max_count</code>.</p>
+<h4 id="sample-commands-12">Sample commands</h4>
+<p>To allow a policy to match an unlimited number of nodes:</p>
+<pre><code>razor --name example --no-max-count
+</code></pre>
+<p>To set a policy to match a maximum of 15 nodes:</p>
+<pre><code>razor --name example --max-count 15
+</code></pre>
+<h3 id="add-policy-tag"><code>add-policy-tag</code></h3>
+<p>The <code>add-policy-tag</code> command adds a new or existing tag to a policy. Because binding to policies happens only when unbound nodes check in, adding a policy tag doesn’t affect nodes that are already bound to a policy.</p>
+<h4 id="command-attributes-21">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the policy to modify.</td>
+  </tr>
+  <tr>
+    <td>tag</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>Name of the tag to add to the policy.</td>
+  </tr>
+  <tr>
+    <td>rule</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;">3</td>
+    <td>
+<p>Creates a new tag using a case-sensitive match expression that applies the tag to a node if the expression evaluates as true.</p>
+    <p>For more information on tag rules, see <a href="./razor_tags.html">Tags</a>.</p>
+    <p>If tag creation fails, the policy isn't modified.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-commands-13">Sample commands</h4>
+<p>To add the existing tag <code>virtual</code> to the policy <code>example</code>:</p>
+<pre><code>  razor add-policy-tag --name example --tag virtual
+</code></pre>
+<p>To add a new tag <code>virtual</code> to the policy <code>example</code>:</p>
+<pre><code>  razor add-policy-tag --name example --tag virtual \
+      --rule '["=", ["fact", "virtual", "false"], "true"]'
+</code></pre>
+<h3 id="remove-policy-tag"><code>remove-policy-tag</code></h3>
+<p>The <code>remove-policy-tag</code> command removes a tag from a policy. Because binding to policies happens only when unbound nodes check in, adding a policy tag doesn’t affect nodes that are already bound to a policy.</p>
+<h4 id="command-attributes-22">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the policy to modify.</td>
+    </tr>
+    <tr>
+      <td>tag</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">2</td>
+      <td>Name of the tag to remove from the policy.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-14">Sample commands</h4>
+<p>To remove the tag <code>virtual</code> from the policy <code>example</code>:</p>
+<pre><code>  razor remove-policy-tag --name example --tag virtual
+</code></pre>
+<h3 id="update-policy-task"><code>update-policy-task</code></h3>
+<p>The <code>update-policy-task</code> command adds or removes a task from a policy.</p>
+<blockquote>
+  <p><strong>Tip</strong>: Before updating a policy task, use <code>razor policies &lt;POLICYNAME&gt; nodes</code> to verify that no nodes are currently provisioning against the policy. If a node is provisioning against the policy when you run this command, provisioning might fail.</p>
+</blockquote>
+<h4 id="command-attributes-23">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>policy</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the policy to modify.</td>
+    </tr>
+    <tr>
+      <td>task</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">2</td>
+      <td>Name of the task to add to the policy.</td>
+    </tr>
+    <tr>
+      <td>no_task</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td>
+<code>true</code> if the policy uses the task in the repository.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-15">Sample commands</h4>
+<p>To update a policy’s task to a task named <code>other_task</code>:</p>
+<pre><code>  razor update-policy-task --policy my_policy --task other_task
+</code></pre>
+<p>To use the task specified by the policy’s repository:</p>
+<pre><code>  razor update-policy-task --policy my_policy --no-task
+</code></pre>
+<h3 id="delete-policy"><code>delete-policy</code></h3>
+<p>The <code>delete-policy</code> command deletes a policy from the Razor database. Nodes bound to the policy aren’t re-provisioned.</p>
+<h4 id="command-attributes-24">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the policy to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-16">Sample commands</h4>
+<p>To delete an obsolete policy:</p>
+<pre><code>  razor delete-policy --name my_obsolete_policy
+</code></pre>
+<h2 id="broker-commands">Broker commands</h2>
+<h3 id="create-broker"><code>create-broker</code></h3>
+<p>The <code>create-broker</code> command creates a new broker configuration used to hand off management of nodes.</p>
+<p>If you’re using Puppet Enterprise for node management, use the <code>puppet-pe</code> broker type. For details on creating other types of brokers, see <a href="./razor_brokers.html#create-a-new-broker-type">Create a new broker type</a>.</p>
+<h4 id="command-attributes-25">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name for the new broker.</td>
+  </tr>
+  <tr>
+    <td>broker-type</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>Usually <code>puppet-pe</code>. Other valid values are <code>puppet</code>, to transfer control to an open source puppet master, and <code>noop</code>, to leave the node unmanaged.</td>
+  </tr>
+  <tr>
+    <td>configuration</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>Configuration details specific to the <code>broker_type</code>. For <code>puppet_pe</code> brokers, properties include:
+     <ul>
+      <li>
+<code>server</code> -- Host name of the Puppet master.</li>
+      <li>
+<code>version</code> -- The agent version to install. The default value is <code>current</code>.</li>
+      <li>
+<code>windows_download_url</code> -- Download URL for a Windows PE agent installer. The default value is taken from the version config file.</li>
+     </ul>
+    </td>
+  </tr>
+</table>
+<h4 id="sample-command-9">Sample command</h4>
+<p>To create a simple <code>puppet-pe</code> broker:</p>
+<pre><code>razor create-broker --name puppet-pe -c server=puppet.example.org \
+  -c version=2015.3
+</code></pre>
+<h3 id="update-broker-configuration"><code>update-broker-configuration</code></h3>
+<p>The <code>update-broker-configuration</code> command sets or clears a specified key value for a broker.</p>
+<h4 id="command-attributes-26">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>broker</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the broker to update.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>
+<p>Name of the key to modify in the broker's configuration file.</p>
+     <p>For <code>puppet-pe</code> brokers, this is usually <code>server</code> or <code>version</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;">3</td>
+    <td>
+<p>New value to use for the key.</p>
+     <p>This attribute can't be used with <code>clear</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>clear</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p><code>true</code> to clear the value of the specified key.</p>
+     <p>This attribute can't be used with <code>value</code>.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-command-10">Sample command</h4>
+<p>To change the key <code>some_key</code> to <code>new_value</code>:</p>
+<pre><code>razor update-broker-configuration --broker mybroker --key some_key --value new_value
+</code></pre>
+<h3 id="delete-broker"><code>delete-broker</code></h3>
+<p>The <code>delete-broker</code> command deletes a specified broker from the Razor database.</p>
+<p>Before deleting a broker, remove any references to it in policies. This command fails if a policy is using the broker.</p>
+<h4 id="command-attributes-27">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the broker to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-command-11">Sample command</h4>
+<p>To delete an obsolete broker:</p>
+<pre><code>razor delete-broker --name my_obsolete_broker
+</code></pre>
+<h2 id="hook-commands">Hook commands</h2>
+<p>Hooks are custom, executable scripts that are triggered to run when a node hits certain phases in its lifecycle. A hook script receives several properties as input, and can make changes in the node’s metadata or the hook’s internal configuration.</p>
+<p>Hooks can be useful for:</p>
+<ul>
+  <li>Notifying an external system about the stage of a node’s installation.</li>
+  <li>Querying external systems for information that modifies how a node gets installed.</li>
+  <li>Calculating complex values for use in a node’s installation configuration.</li>
+</ul>
+<h3 id="create-hook"><code>create-hook</code></h3>
+<p>The <code>create-hook</code> command enables a hook to run when specified events occur.</p>
+<h4 id="command-attributes-28">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the new hook.</td>
+  </tr>
+  <tr>
+    <td>hook_type</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>Type of hook that the new hook is based on. For available hook types on your server, run <code>razor create-hook --help</code>.</td>
+  </tr>
+  <tr>
+    <td>configuration</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Configuration settings as required by the <code>hook_type</code>.</p>
+    <p>This argument sets the initial configuration values for a hook. Configuration values can change as the hook is executed based on events or the <code>update-hook-configuration</code> command.</p>
+    <p>This attribute can be abbreviated as <code>-c</code>.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-command-12">Sample command</h4>
+<p>To create a simple hook:</p>
+<pre><code>  razor create-hook --name myhook --hook-type some_hook --configuration foo=7
+</code></pre>
+<h3 id="run-hook"><code>run-hook</code></h3>
+<p>The <code>run-hook</code> command executes a hook with parameters you specify. This command is useful to test a hook you’re writing, or to re-run a hook that failed.</p>
+<h4 id="command-attributes-29">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the hook to run.</td>
+  </tr>
+  <tr>
+    <td>event</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the event to trigger the hook.</p>
+     <p>For available event types see <a href="./razor_hooks.html#available-events">Available events</a>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>node</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;"></td>
+    <td>Name of the node you want to run the hook on.</td>
+  </tr>
+  <tr>
+    <td>policy</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p>Name of the policy you want to use as input to the hook script when the hook runs.</p>
+     <p>This attribute applies only to events that affect policies, for example <code>node-bound-to-policy</code> and <code>node-unbound-from-policy</code>.</p>
+</td>
+  </tr>
+  <tr>
+    <td>debug</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td>
+<p><code>true</code> to include debug information in the event log.</p>
+     <p>If omitted, debug information is not logged.</p>
+</td>
+  </tr>
+</table>
+<h4 id="sample-commands-17">Sample commands</h4>
+<p>To run a hook called <code>counter</code> when a node boots:</p>
+<pre><code>  razor run-hook --name counter --event node-booted --node node1
+</code></pre>
+<h3 id="update-hook-configuration"><code>update-hook-configuration</code></h3>
+<p>The <code>update-hook-configuration</code> command sets or clears a specified key value for a hook. This can be useful to iteratively test a hook you’re writing. For example, you can write the hook, test it with <code>run-hook</code>, then modify the hook as needed with <code>update-hook-configuration</code>.</p>
+<h4 id="command-attributes-30">Command attributes</h4>
+<table>
+  <tr>
+    <th>Attributes</th>
+    <th style="text-align: center;">Required</th>
+    <th style="text-align: center;">Positional arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>hook</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">1</td>
+    <td>Name of the hook to update.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td style="text-align: center;">✓</td>
+    <td style="text-align: center;">2</td>
+    <td>Name of the key to modify in the hook's configuration file.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;">3</td>
+    <td>Value to change the key to.</td>
+  </tr>
+  <tr>
+    <td>clear</td>
+    <td style="text-align: center;">*</td>
+    <td style="text-align: center;"></td>
+    <td>
+<code>true</code> to clear the value of the specified key.</td>
+  </tr>
+</table>
+<p>* You must specify <code>value</code> or <code>clear</code>.</p>
+<h4 id="sample-command-13">Sample command</h4>
+<p>To change the key <code>some_key</code> to <code>new_value</code>:</p>
+<pre><code>razor update-hook-configuration --hook hook1 \
+  --key my_key --value new_value
+</code></pre>
+<h3 id="delete-hook"><code>delete-hook</code></h3>
+<p>The <code>delete-hook</code> command deletes a specified hook from the Razor database.</p>
+<h4 id="command-attributes-31">Command attributes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: center">Positional arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td style="text-align: center">✓</td>
+      <td style="text-align: center">1</td>
+      <td>Name of the hook to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="sample-commands-18">Sample commands</h4>
+<p>To delete an obsolete hook:</p>
+<pre><code>  razor delete-hook --name my_obsolete_hook
+</code></pre></article><div class="docs-feedback-inpage is-hidden" id="docs-feedback-inpage">
+
+  <p>To send us feedback or let us know about a docs error, <a href="#">open a ticket</a> (you need a Jira account) or leave a comment.</p>
+
+  <div class="pm-docs-feedback-form pm-margin-bottom--xl pm-margin-top--xl">
+
+    <form name="docs-feedback-form" method="post" data-netlify="true">
+      <div class="pm-margin-top--sm">
+        <label class="pm-docs-feedback-form__instructions">
+          Send feedback to the Docs team:
+          <div class="pm-input">
+            <div class="rc-input-container">
+              <textarea id="comment" name="comment" class="rc-input rc-input-multiline" placeholder="What should we know about this page?"></textarea>
+            </div>
+          </div>
+        </label>
+
+        <label class="pm-docs-feedback-form__instructions">
+          Email Address:
+          <div class="pm-input">
+            <div class="rc-input-container">
+              <input type="email" id="email" name="email" class="rc-input" value="" placeholder="Where can we reach you to follow up?">
+            </div>
+          </div>
+        </label>
+      </div>
+<!-- End pm-margin-top-/-sm -->
+
+      <button class="pm-button pm-button--blue">Submit</button>
+
+      <p class="pm-margin-top--sm">
+        If you leave us your email, we may contact you regarding your feedback.
+        For more information on how Puppet uses your personal information, see
+        our
+        <a href="https://puppet.com/legal/privacy-policy/" rel="noopener noreferrer" class="pm-link">privacy policy</a>.
+      </p>
+
+      <input type="hidden" name="subject" value="">
+
+      <input type="hidden" id="url" name="url" class="rc-input" value="" placeholder="">
+
+      <input type="hidden" id="form-name" name="form-name" class="rc-input" value="docs-feedback-form" placeholder="">
+
+      <input type="hidden" id="comment" name="comment" class="rc-input" value="" placeholder="">
+
+      <input type="hidden" id="email" name="email" class="rc-input" value="" placeholder="">
+    </form>
+  </div>
+<!-- End pm-docs-feedback-form -->
+</div>
+<!-- End docs-feedback-inpage -->
+</main>
+</div></div>
+<div class="pm-site-footer">
+  <div class="container pm-site-footer__wrapper">
+    <section>
+      <div class="pm-site-footer__content">
+        <div class="pm-site-footer__logo">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 560.7 198.2" focusable="false">
+            <path d="M99.1 99.1V53.5H64.2L45.6 34.8V0H0v45.6h34.9l18.7 18.7v24.1l-18.7 18.7H0v45.6h45.6v-34.8l18.7-18.7h34.8zM15.2 15.2h15.2v15.2H15.2zm15.2 122.2H15.2v-15.2h15.2z" fill="#ffae1a"></path>
+            <path d="M149.6 198.2h-20.1V99.1h20.1v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm124 24.3h-20.1v-6.6a26.24 26.24 0 01-19.4 8.3c-16.2 0-25.4-10.7-25.4-26.7V99.2h20.1v43.2c0 7.6 3.7 12.8 11.7 12.8 6.2 0 11.5-3.7 13-10v-46h20.2v72.3zm33.4 26.7h-20.1V99.1H307v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm80 51h-20.1V99.1H387v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm123.2.6c-2.6 15.4-13.9 25.3-32.1 25.3-21.1 0-35.1-15.4-35.1-37.7 0-21.9 14.6-37.9 34.8-37.9 21.2 0 32.9 14.7 32.9 36v6.2h-48.3c.6 10.9 6.8 17.3 15.7 17.3 6.8 0 11.8-2.9 13.4-9.1h18.7zm-47.3-20.4h28c-.2-7.6-4.7-13.6-13-13.6-7.7 0-13.2 4.7-15 13.6zm60.9-12.1h-11V99.1h11V79.5h19.9v19.6h15.9v16.2h-15.9V147c0 5.7 3.1 8.3 8.3 8.3a17.36 17.36 0 008.7-2.4v17.8c-2.8 1.5-7.6 2.3-13 2.3-14.7 0-24-7.3-24-23.3v-34.4z" fill="#fff"></path>
+          </svg>
+        </div>
+        <div class="pm-site-footer__content-text">
+          <p class="text">Puppet automates the delivery and operation of the software that powers some of the biggest brands in the world.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="pm-site-footer__navs">
+        <div class="pm-site-footer__legal-menu legal footer-nav"><ul class="pm-site-footer__legal-menu__items items">
+<li class="item"><a href="/legal/">Legal</a></li>
+<li class="item"><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+<li class="item"><a href="/legal/terms-of-use/">Terms of Use</a></li>
+<li class="item"><a href="/security/">Security</a></li>
+</ul></div>
+<!-- Content generated with JS -->
+        <div class="pm-site-footer__coda-menu coda footer-nav"><ul class="pm-site-footer__coda-menu__items items">
+<li class="item"><a href="/sitemap/">Sitemap © 2020</a></li>
+<li class="item"><a href="/">Puppet</a></li>
+</ul></div>
+<!-- Content generated with JS -->
+      </div>
+    </section>
+  </div>
+<!-- End pm-site-footer__wrapper -->
+</div>
+<!-- End pm-site-footer -->
+<script src="https://puppet-docs-herrera.netlify.app/js/docs.js"></script>
+</body>
+</html>

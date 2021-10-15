@@ -1,0 +1,754 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Reviewing applications</title>
+<link rel="stylesheet" type="text/css" href="https://puppet-docs-herrera.netlify.app/css/fonts.css">
+<link rel="stylesheet" type="text/css" href="https://puppet-docs-herrera.netlify.app/css/docs.css">
+<meta name="prodname" content="pe">
+<meta name="version" content="2016.4">
+</head>
+<body><div class="pm-site-secondary">
+  <div class="container pm-site-secondary__wrapper">
+
+    <section>
+      <div class="pm-site-secondary__satellite">
+        <nav>
+          <div class="pm-site-secondary__satellite-menu"><ul class="pm-site-secondary__satellite-menu__items items">
+<li class="item"><a href="/">Puppet.com</a></li>
+<li class="item"><a href="https://forge.puppet.com/">Forge</a></li>
+<li class="item"><a href="https://learn.puppet.com/">Compass</a></li>
+<li><div class="button-wrapper">
+                                <a href="/try-puppet/" class="pm-button pm-button--purple">
+                                    Try Puppet
+                                </a><!-- This URL might change -->
+                              </div></li>
+</ul></div>
+<!-- Content generated with JS -->
+        </nav>
+      </div>
+    </section>
+
+  </div>
+</div>
+<header id="pm-site-header" class="pm-site-header">
+  <div class="container pm-site-header__wrapper">
+    <section>
+      <div class="pm-site-header__primary">
+        <div class="pm-site-header__logo">
+          <a href="/" class="pm-link">
+            <svg width="124" height="52" viewbox="0 0 124 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path d="M50.1614 50.451H56.2668V18.8085H50.1614V30.4919C49.1846 29.3236 47.0355 28.2039 44.691 28.2039C38.3414 28.2039 34.7759 33.3641 34.7759 39.5952C34.7759 45.8264 38.3414 50.9379 44.691 50.9379C47.0355 50.9379 49.1846 49.8182 50.1614 48.6499V50.451ZM50.1614 43.1489C49.4776 44.658 47.8658 45.6803 46.0586 45.6803C42.7861 45.6803 40.8324 43.0516 40.8324 39.5952C40.8324 36.0902 42.7861 33.4614 46.0586 33.4614C47.817 33.4614 49.4776 34.5324 50.1614 35.9928V43.1489Z" fill="#222629"></path>
+                <path d="M79.88 39.5952C79.88 32.8773 75.533 28.2039 69.1834 28.2039C62.8338 28.2039 58.4868 32.8773 58.4868 39.5952C58.4868 46.2645 62.8338 50.9379 69.1834 50.9379C75.533 50.9379 79.88 46.2645 79.88 39.5952ZM73.8723 39.5952C73.8723 43.1976 72.2117 45.8264 69.1834 45.8264C66.1552 45.8264 64.4945 43.1976 64.4945 39.5952C64.4945 35.9442 66.1552 33.3154 69.1834 33.3154C72.2117 33.3154 73.8723 35.9442 73.8723 39.5952Z" fill="#222629"></path>
+                <path d="M82.1001 39.5952C82.1001 46.3132 86.3983 50.9379 92.6013 50.9379C98.0717 50.9379 101.54 47.7736 102.175 43.1003H96.2157C95.8738 44.7554 94.555 45.7777 92.6013 45.7777C89.8173 45.7777 88.1078 43.2463 88.1078 39.5952C88.1078 35.8955 89.8173 33.3641 92.6013 33.3641C94.555 33.3641 95.8738 34.3864 96.2157 36.0415H102.175C101.54 31.4169 98.0717 28.2039 92.6013 28.2039C86.3983 28.2039 82.1001 32.8286 82.1001 39.5952Z" fill="#222629"></path>
+                <path d="M104.395 43.9765C105.029 48.4065 108.79 50.9379 114.115 50.9379C119.194 50.9379 123.053 48.3091 123.053 43.8791C123.053 40.5689 121.05 38.4756 117.241 37.5506L112.747 36.5283C111.38 36.1876 110.793 35.7008 110.793 34.8245C110.793 33.4614 112.21 32.7799 113.675 32.7799C115.678 32.7799 116.703 33.7049 117.094 34.9219H122.858C122.125 30.8327 119.097 28.2039 113.577 28.2039C108.693 28.2039 104.883 31.0274 104.883 35.2626C104.883 38.9137 107.227 40.6175 110.549 41.3964L114.945 42.37C116.459 42.7595 117.143 43.2463 117.143 44.2199C117.143 45.6317 115.922 46.3619 114.066 46.3619C112.259 46.3619 110.891 45.5343 110.402 43.9765H104.395Z" fill="#222629"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.44027 39.8298H8.88053V35.4043H4.44027V39.8298ZM4.44027 8.85106H8.88053V4.42553H4.44027V8.85106ZM28.8617 28.766V15.4894H18.8711L13.3208 9.95745V0H0V13.2766H9.9906L15.5409 18.8085V25.4468L9.9906 30.9787H0V44.2553H13.3208V34.2979L18.8711 28.766H28.8617Z" fill="#FFAE1A"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <nav class="pm-site-header__primary-nav">
+          <button title="Show or hide navigation" class="pm-site-header__primary-menu__hamburger" id="pm-site-header__primary-menu__hamburger">
+            <span class="pm-site-header__primary-menu__hamburger__frame">
+              <span class="pm-site-header__primary-menu__hamburger__inner"></span>
+            </span>
+          </button>
+
+          <div class="pm-site-header__primary-menu">
+<nav class="pm-site-header__primary-menu__nav ">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Docs
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">Products</li>
+<li class="link"><a href="/docs/pe/latest">Puppet Enterprise</a></li>
+<li class="link"><a href="/docs/puppet/latest/">Open Source Puppet</a></li>
+<li class="link"><a href="/docs/bolt/latest/">Bolt</a></li>
+<li class="link"><a href="/docs/pdk/latest/">Puppet Development Kit</a></li>
+<li class="link"><a href="/docs/puppetdb/latest/">Puppet DB</a></li>
+<li class="link"><a href="/docs/remediate/latest/">Puppet Remediate</a></li>
+<li class="link"><a href="/docs/vro/">Puppet Plugin for VMware</a></li>
+</ul>
+                </nav><nav class="pm-site-header__primary-menu__nav ">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Support
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">Get</li>
+<li class="link"><a href="/pe/latest">Technical Support Plans</a></li>
+<li class="link"><a href="/puppet/latest/">Support Lifecycle Policy</a></li>
+<li class="link"><a href="/bolt/latest/">New Puppet Enterprise Customer?</a></li>
+</ul>
+                </nav><nav class="pm-site-header__primary-menu__nav is-last-nav-child">
+                    <button class="pm-link pm-link--unstyled pm-button--empty">
+        Community
+        <span class="item-chevron">
+          <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z" fill="#ffaeia"></path>
+            </svg>
+        </span>
+      </button>
+                    <ul class="pm-site-header__primary-menu__nav-dropdown">
+<li class="heading">About Puppet</li>
+<li class="link"><a href="/pe/latest">TBD...</a></li>
+<li class="link"><a href="/puppet/latest/">TBD...</a></li>
+<li class="heading">Community</li>
+<li class="link"><a href="/pe/latest">Puppet Champions</a></li>
+<li class="link"><a href="/puppet/latest/">Puppet Test Pilots</a></li>
+<li class="link"><a href="/puppet/latest/">Community Office Hours</a></li>
+<li class="link"><a href="/puppet/latest/">Slack Channel</a></li>
+</ul>
+                </nav><button id="pm-site-header__primary-menu__search" class="pm-site-header__primary-menu__search pm-link--unstyled pm-button--empty">
+            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pm-site-header__primary-menu__search-icon">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10.5C0 16.4257 4.73529 21 10.5 21C16.2647 21 21 16.4257 21 10.5C21 4.78218 16.2647 0 10.5 0C4.73529 0 0 4.78218 0 10.5ZM3 10.5C3 14.7327 6.38235 18 10.5 18C14.6176 18 18 14.7327 18 10.5C18 6.41584 14.6176 3 10.5 3C6.38235 3 3 6.41584 3 10.5Z" fill="#222629"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.409 16.409C17.2877 15.5303 18.7123 15.5303 19.591 16.409L23.341 20.159C24.2197 21.0377 24.2197 22.4623 23.341 23.341C22.4623 24.2197 21.0377 24.2197 20.159 23.341L16.409 19.591C15.5303 18.7123 15.5303 17.2877 16.409 16.409Z" fill="#222629"></path>
+            </svg>
+          </button>
+</div> <!-- Content generated with JS -->
+
+        </nav>
+      </div>
+<!-- End pm-site-header__primary -->
+    </section>
+
+    <div class="pm-site-header__divider"></div>
+
+  </div>
+<!-- End pm-site-header__wrapper -->
+</header><!-- End pm-site-header -->
+<div class="container docs-search-inpage">
+  <div class="pm-search-wrapper">
+    <div class="pm-input">
+      <!-- Search Form -->
+      <div id="pm-search-box" class="pm-search-box"></div>
+      <!-- /Search Form -->
+    </div>
+    <div class="pm-grid pm-grid--has-gutter" id="pm-search-content">
+      <div class="pm-column pm-column--base-span-12 pm-pagination-wrapper">
+        <!-- Pagination -->
+        <div id="pm-pagination"></div>
+        <!-- /Pagination -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-6 pm-hits-wrapper">
+        <!-- Search Results -->
+        <ul id="pm-hits"></ul>
+        <!-- /Search Results -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-4 pm-refinement-product-wrapper">
+        <!-- Product Refinement List -->
+        <div id="pm-product" data-title="Product"></div>
+        <!-- /Product Refinement List -->
+      </div>
+      <div class="pm-column pm-column--base-span-12 pm-column--above-sm-span-2 pm-refinement-version-wrapper">
+        <!-- Version Refinement List -->
+        <div id="pm-version" data-title="Version"></div>
+        <!-- /Refinement List -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="content"><div class="row">
+<nav role="toc" class="pm-product-version-select__nav">
+	<div class="pm-product-version-select"> <h4 class="pm-product-version-select__header">PRODUCT AND VERSION</h4>
+  <div class="pm-product-version-select__type">
+    <button id="product-type-select-button" class="pm-product-version-select__type-select-button pm-link pm-link--unstyled pm-button--empty">
+      Current product
+      <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z"></path>
+      </svg>
+    </button>
+
+    <ul class="pm-product-version-select__type-options"></ul>
+<!-- Content Generated by JS -->
+  </div>
+<!-- End pm-product-version-select -->
+
+  <!-- Version Select -->
+  <div class="pm-product-version-select__version">
+    <button id="product-version-select-button" class="pm-product-version-select__version-select-button pm-link pm-link--unstyled pm-button--empty">
+      Current version
+      <svg width="14" height="9" viewbox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 4.9763L10.8217 1.15481C11.4725 0.503938 12.5278 0.503938 13.1787 1.15481C13.8295 1.80569 13.8295 2.86096 13.1787 3.51183L8.17867 8.51183C7.5278 9.16271 6.47252 9.16271 5.82165 8.51183L0.821651 3.51183C0.170778 2.86096 0.170778 1.80569 0.821651 1.15481C1.47253 0.503938 2.5278 0.503938 3.17867 1.15481L7.00016 4.9763Z"></path>
+      </svg>
+    </button>
+
+    <ul class="pm-product-version-select__version-options"></ul>
+<!-- Content Generated by JS -->
+  </div>
+</div>
+
+
+
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./overview_about_pe.html">Welcome to PE</a></li>
+      <li><a href="./pe_architecture_overview.html">PE architecture overview</a></li>
+      <li><a href="./overview_version_table.html">Component versions in recent PE releases</a></li>
+      <li><a href="./overview_getting_support.html">Getting support</a></li>
+      <li><a href="./pe_versioning.html">PE version numbers</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./release_notes.html">New features and enhancements</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./release_notes_known_issues_install.html">Install and upgrade</a></li>
+          <li><a href="./release_notes_known_issues_console.html">PE console and console services</a></li>
+          <li><a href="./release_notes_known_issues_puppetserver.html">Puppet Server</a></li>
+          <li><a href="./release_notes_known_issues_puppetdb.html">Databases and PostgreSQL</a></li>
+          <li><a href="./release_notes_known_issues_app.html">Orchestration services</a></li>
+          <li><a href="./release_notes_known_issues_core.html">PE services and Puppet core</a></li>
+          <li><a href="./release_notes_known_issues_platforms.html">Supported platforms</a></li>
+          <li><a href="./release_notes_known_issues_razor.html">Razor</a></li>
+          <li><a href="./release_notes_known_issues_codemgmt.html">Code management</a></li>
+          <li><a href="./release_notes_known_issues_utf8.html">UTF-8</a></li>
+        </ul>
+      </li>
+      <li><a href="./release_notes_resolved_issues.html">Resolved issues</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li><a href="./puppet_overview.html">Puppet platform documentation</a></li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_install_mono.html">1: Install PE</a></li>
+          <li><a href="./quick_start_install_agents_nix.html">2: Install agents</a></li>
+          <li><a href="./quick_start_module_install_nix.html">3: Module install</a></li>
+          <li><a href="./quick_start_adding_class_nix.html">4: Add classes</a></li>
+          <li><a href="./quick_start_nc_rbac.html">5: Give users access</a></li>
+          <li><a href="./quick_writing_nix.html">6: Write modules</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_install_mono.html">1: Install PE</a></li>
+          <li><a href="./quick_start_install_agents_windows.html">2: Install agents</a></li>
+          <li><a href="./quick_start_module_install_windows.html">3: Module install</a></li>
+          <li><a href="./quick_start_adding_class_windows.html">4: Classify agents</a></li>
+          <li><a href="./quick_start_rbac_windows.html">5: Assign user access</a></li>
+          <li><a href="./quick_writing_windows.html">6: Write modules</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./quick_start_ntp.html">NTP quick start guide</a></li>
+          <li><a href="./quick_start_dns.html">DNS quick start guide</a></li>
+          <li><a href="./quick_start_ssh.html">SSH quick start guide</a></li>
+          <li><a href="./quick_start_sudo.html">Sudo quick start guide</a></li>
+          <li><a href="./quick_start_firewall.html">Firewall quick start guide</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./windows_installing.html">Installing PE for a Windows environment</a></li>
+      <li><a href="./windows_basic_tasks.html">Basic tasks and concepts in Windows</a></li>
+      <li><a href="./windows_config_mgmnt.html">Managing Windows configurations</a></li>
+      <li><a href="./windows_modules.html">Installing and using Windows modules</a></li>
+      <li><a href="./troubleshooting_windows.html">Troubleshooting Puppet on Windows</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./sys_req_hw.html">Hardware requirements</a></li>
+          <li><a href="./sys_req_os.html">Supported operating systems</a></li>
+          <li><a href="./sys_req_browsers.html">Supported browsers</a></li>
+          <li><a href="./sys_req_sysconfig.html">System config and firewall requirements</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_what_and_where.html">What gets installed where?</a></li>
+      <li><a href="./install_basic.html">Downloading PE and installing overview</a></li>
+      <li><a href="./install_pe_mono.html">Web-based installation: monolithic</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_text_mode.html">Text-mode installation overview</a></li>
+          <li><a href="./install_text_mode_mono.html">Text-mode installation: monolithic</a></li>
+          <li><a href="./install_text_mode_split.html">Text-mode installation: split</a></li>
+          <li><a href="./install_pe_conf_param.html">Configuration settings in pe.conf</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_license_key.html">Installing PE license key</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_agents.html">Installing agents: *nix</a></li>
+          <li><a href="./install_windows.html">Installing agents: Windows</a></li>
+          <li><a href="./install_osx.html">Installing agents: Mac OS X</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./install_eos.html">Installing agents: Arista EOS</a></li>
+          <li><a href="./install_nxos.html">Installing agents: Cisco NS-OX</a></li>
+          <li><a href="./install_iosxr.html">Installing agents: Cisco IOS-XR</a></li>
+          <li><a href="./install_cumulus.html">Installing agents: Cumulus Linux</a></li>
+        </ul>
+      </li>
+      <li><a href="./install_multimaster.html">Installing compile masters</a></li>
+      <li><a href="./install_lei_load.html">Load balancing compile masters</a></li>
+      <li><a href="./install_add_activemq.html">Installing ActiveMQ hubs and spokes</a></li>
+      <li><a href="./install_pe_client_tools.html">Installing PE client tools</a></li>
+      <li><a href="./install_uninstalling.html">Uninstalling PE</a></li>
+      <li><a href="./install_separate_pe_postgres.html">Installing standalone PE-PostgreSQL</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./sys_req_extsql.html">External PostgreSQL prep</a></li>
+          <li><a href="./install_ssl_postgresql.html">SSL for PE and external PostgreSQL</a></li>
+          <li><a href="./install_external_postgresql.html">PE and external PostgreSQL without root access</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./upgrade_mono.html">Upgrading PE: monolithic</a></li>
+      <li><a href="./upgrade_split.html">Upgrading PE: split</a></li>
+      <li><a href="./install_upgrading_agents.html">Upgrading PE agents: *nix</a></li>
+      <li><a href="./upgrade_windows.html">Upgrading PE agents: Windows</a></li>
+      <li><a href="./install_lei_upgrade.html">Upgrading large environment installations</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./migrate_pe_catalog_preview.html">Preparing for Migration to PE 2016.4</a></li>
+      <li><a href="./migrate_monolithic.html">Migrating from PE 3.8 to 2016.4: monolithic</a></li>
+      <li><a href="./migrate_notes.html">Migrating: important notes</a></li>
+      <li><a href="./install_upgrading_path_changes.html">Major path changes</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./config_intro.html">Your PE infrastructure</a></li>
+      <li><a href="./config_puppetserver.html">Tuning Puppet Server</a></li>
+      <li><a href="./puppet_server_config_files.html">Puppet Server config files</a></li>
+      <li><a href="./console_config.html">Tuning the console</a></li>
+      <li><a href="./config_puppetdb.html">Tuning PuppetDB</a></li>
+      <li><a href="./config_orchestration.html">Tuning orchestration</a></li>
+      <li><a href="./config_java_args.html">Java arguments For PE</a></li>
+      <li><a href="./config_ulimit.html">Configuring ulimit for PE services</a></li>
+      <li><a href="./config_monolithic.html">Tuning mono installs (reference)</a></li>
+      <li><a href="./config_hocon.html">Writing configuration files</a></li>
+      <li><a href="./analytics_opt_out.html">Opt out of Puppet data collection</a></li>
+      <li><a href="./static_catalogs.html">Static catalogs</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./CM_overview.html">Monitor and analyze infrastructure state</a></li>
+      <li><a href="./CM_graph.html">Explore your catalog with the node graph</a></li>
+      <li><a href="./CM_events.html">Analyze changes across Puppet runs</a></li>
+      <li><a href="./CM_reports.html">Infrastructure reports</a></li>
+      <li><a href="./puppet_server_metrics.html">Monitoring Puppet Server metrics</a></li>
+      <li><a href="./status_api.html">Monitoring PE services</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./console_cert_mgmt.html">Managing node requests</a></li>
+      <li><a href="./console_classes_groups_running_puppet.html">Running Puppet on agent nodes</a></li>
+      <li><a href="./console_classes_groups_getting_started.html">Getting started with classification</a></li>
+      <li><a href="./console_classes_groups.html">Grouping and classifying nodes</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./r_n_p_intro.html">Introduction</a></li>
+          <li><a href="./r_n_p_full_example.html">A complete example</a></li>
+          <li><a href="./r_n_p_profiles.html">Designing advanced profiles</a></li>
+          <li><a href="./r_n_p_roles.html">Designing convenient roles</a></li>
+        </ul>
+      </li>
+      <li><a href="./nodes_viewing.html">Viewing node-specific information</a></li>
+      <li><a href="./console_classes_groups_making_changes.html">Making changes to node groups</a></li>
+      <li><a href="./node_deactivation.html">Removing nodes</a></li>
+      <li><a href="./console_classes_groups_preconfigured_groups.html">Preconfigured node groups</a></li>
+      <li><a href="./console_classes_groups_inheritance.html">How does inheritance work?</a></li>
+      <li><a href="./console_classes_groups_environment_override.html">Working with environments</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./nc_index.html">Endpoints</a></li>
+          <li><a href="./nc_forming_requests.html">Forming node classifier requests</a></li>
+          <li class="has-children">
+            <ul>
+              <li><a href="./nc_groups_example.html">Groups endpoint examples</a></li>
+            </ul>
+          </li>
+          <li><a href="./nc_classes.html">Classes</a></li>
+          <li><a href="./nc_classification.html">Classification</a></li>
+          <li><a href="./nc_commands.html">Commands</a></li>
+          <li><a href="./nc_environments.html">Environments</a></li>
+          <li><a href="./nc_nodes.html">Node history</a></li>
+          <li><a href="./nc_groups_children.html">Group children</a></li>
+          <li><a href="./nc_rules.html">Rules</a></li>
+          <li><a href="./nc_import-hierarchy.html">Importing node classifier hierarchy</a></li>
+          <li><a href="./nc_last_class_update.html">Last class</a></li>
+          <li><a href="./nc_update_classes.html">Updating node classifier classes</a></li>
+          <li><a href="./nc_validate.html">Validating node classifier endpoints</a></li>
+          <li><a href="./nc_errors.html">Node classifier errors</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./console_accessing.html">Accessing the console</a></li>
+      <li><a href="./rbac_intro.html">Role-based access control</a></li>
+      <li><a href="./rbac_ldap.html">Connecting PE with external directory services</a></li>
+      <li><a href="./rbac_permissions.html">About RBAC permissions</a></li>
+      <li><a href="./rbac_user_roles.html">Creating and managing users and user roles</a></li>
+      <li><a href="./rbac_token_auth.html">Token-based authentication</a></li>
+      <li><a href="./deploy_nonroot-agent.html">Running agents without root privileges</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_serviceindex_v1.html">Endpoints</a></li>
+          <li><a href="./rbac_forming_requests_v1.html">Forming RBAC requests</a></li>
+          <li><a href="./rbac_users_v1.html">Users</a></li>
+          <li><a href="./rbac_usergroups_v1.html">User groups</a></li>
+          <li><a href="./rbac_roles_v1.html">Roles</a></li>
+          <li><a href="./rbac_permissionsref_v1.html">Permissions</a></li>
+          <li><a href="./rbac_token_v1.html">Authentication tokens</a></li>
+          <li><a href="./rbac_dsref_v1.html">Directory service</a></li>
+          <li><a href="./rbac_passwords_v1.html">Passwords</a></li>
+          <li><a href="./rbac_serviceerrors_v1.html">Errors</a></li>
+          <li><a href="./rbac_config_v1.html">Configuration options</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_serviceindex_v2.html">Endpoints</a></li>
+          <li><a href="./rbac_revoke_token_v2.html">Revoke tokens</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./rbac_activityapis.html">Endpoints</a></li>
+          <li><a href="./rbac_activityreporting.html">Activity reporting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./app_orchestration_overview.html">Application orchestration: Overview</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./app_orchestration_workflow.html">Application orchestration workflow</a></li>
+          <li><a href="./app_orchestration_app_definition.html">Creating application definitions</a></li>
+          <li><a href="./app_orchestration_declare_instance.html">Declaring application instances</a></li>
+          <li><a href="./app_orchestration_produce_consume.html">Producing and consuming service resources</a></li>
+          <li><a href="./app_orchestration_writing_service_resources.html">Writing custom service resource types</a></li>
+          <li><a href="./app_orchestration_availability_tests.html">Availability tests</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item active"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./direct_puppet_workflow.html">Direct Puppet: a workflow</a></li>
+      <li><a href="./orchestrator_intro.html">Puppet orchestrator: overview</a></li>
+      <li><a href="./orchestrator_install.html">Configuring Puppet orchestrator</a></li>
+      <li class="active"><a href="./orchestrator_app.html">Reviewing applications</a></li>
+      <li><a href="./orchestrator_job_plan.html">Checking a Puppet job plan</a></li>
+      <li><a href="./orchestrator_job_run.html">Running Puppet jobs</a></li>
+      <li><a href="./orchestrator_job_status_view.html">Reviewing Puppet jobs</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./orchestrator_api_endpoints.html">Endpoints</a></li>
+          <li><a href="./orchestrator_api_requests.html">Forming requests</a></li>
+          <li><a href="./orchestrator_api_commands.html">Commands</a></li>
+          <li><a href="./orchestrator_api_events.html">Events</a></li>
+          <li><a href="./orchestrator_api_jobs.html">Jobs</a></li>
+          <li><a href="./orchestrator_api_root.html">Root</a></li>
+          <li><a href="./orchestrator_api_errors.html">Errors</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./cmgmt_managing_code.html">Managing and deploying Puppet code</a></li>
+      <li><a href="./cmgmt_control_repo.html">Setting up a control repository</a></li>
+      <li><a href="./cmgmt_puppetfile.html">Managing environment content with Puppetfiles</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./code_mgr.html">Managing code with Code Manager</a></li>
+          <li><a href="./code_mgr_config.html">Configuring Code Manager</a></li>
+          <li><a href="./code_mgr_custom.html">Customizing Code Manager configuration</a></li>
+          <li><a href="./code_mgr_cli.html">Triggering Code Manager from the command line</a></li>
+          <li><a href="./code_mgr_webhook.html">Triggering Code Manager with a webhook</a></li>
+          <li><a href="./code_mgr_scripts.html">Triggering Code Manager with custom scripts</a></li>
+          <li><a href="./code_mgr_troubleshoot.html">Troubleshooting Code Manager</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./r10k.html">Managing code with r10k</a></li>
+          <li><a href="./r10k_config.html">Configuring r10k</a></li>
+          <li><a href="./r10k_custom.html">Customizing r10k configuration</a></li>
+          <li><a href="./r10k_run.html">Deploying environments with r10k</a></li>
+          <li><a href="./r10k_reference.html">r10k subcommand reference</a></li>
+        </ul>
+      </li>
+      <li><a href="./cmgmt_filesync.html">About file sync</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./razor_intro.html">Bare-metal provisioning with Razor</a></li>
+      <li><a href="./razor_prereqs.html">Setting up a Razor environment</a></li>
+      <li><a href="./razor_install.html">Installing Razor</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./razor_client_commands.html">Razor client commands</a></li>
+        </ul>
+      </li>
+      <li><a href="./razor_brownfield.html">Protecting existing nodes</a></li>
+      <li><a href="./razor_using.html">Provisioning a node</a></li>
+      <li><a href="./razor_windows_install.html">Provisioning a Windows node</a></li>
+      <li><a href="./razor_microkernel_extension.html">Provisioning with custom facts</a></li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./razor_repos.html">Repositories</a></li>
+          <li><a href="./razor_tasks.html">Tasks</a></li>
+          <li><a href="./razor_tags.html">Tags</a></li>
+          <li><a href="./razor_policies.html">Policies</a></li>
+          <li><a href="./razor_brokers.html">Brokers</a></li>
+          <li><a href="./razor_hooks.html">Hooks</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./razor_reference.html">API reference</a></li>
+        </ul>
+      </li>
+      <li><a href="./razor_upgrade.html">Upgrading Razor</a></li>
+      <li><a href="./razor_uninstall.html">Uninstalling Razor</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li class="has-children">
+        <ul>
+          <li><a href="./trouble_regenerate_certs_monolithic.html">Regenerating certs: mono</a></li>
+          <li><a href="./trouble_regenerate_certs_split.html">Regenerating certs: splits</a></li>
+        </ul>
+      </li>
+      <li class="has-children">
+        <ul>
+          <li><a href="./regenerate_certs_master.html">Regenerating certs for the Puppet master</a></li>
+          <li><a href="./regenerate_certs_puppetdb.html">Regenerating certs for PuppetDB</a></li>
+          <li><a href="./regenerate_certs_console.html">Regenerating certs for the PE console</a></li>
+        </ul>
+      </li>
+      <li><a href="./agent_cert_regen.html">Regenerating a Puppet agent certificate</a></li>
+      <li><a href="./compile_master_cert_regen.html">Regenerating a compile master certificate</a></li>
+      <li><a href="./external_ca.html">Using an external certificate authority with PE</a></li>
+      <li><a href="./custom_console_cert.html">Configuring the PE console to use a custom SSL certificate</a></li>
+      <li><a href="./trouble_dh_generate.html">Custom Diffie-Hellman param file generation</a></li>
+      <li><a href="./install_ssl_postgresql.html">SSL for PE and external PostgreSQL</a></li>
+      <li><a href="./disable_tlsv1.html">Disable TLSV1 in PE</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./api_index.html">Index of Puppet APIs</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./mco_overview.html">Overview</a></li>
+      <li><a href="./mco_invoke_cli.html">Invoking actions</a></li>
+      <li><a href="./orchestration_puppet.html">Controlling Puppet</a></li>
+      <li><a href="./mco_actions.html">List of built-in actions</a></li>
+      <li><a href="./mco_adding_actions.html">Adding new actions</a></li>
+      <li><a href="./mco_config.html">Configuring MCollective</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./maintain_console-db.html">PE database maintenance</a></li>
+      <li><a href="./maintain_backup_restore.html">Back up and restore PE</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./trouble_install.html">Troubleshooting the installer</a></li>
+      <li><a href="./trouble_comms.html">Troubleshooting connections</a></li>
+      <li><a href="./code_mgr_troubleshoot.html">Troubleshooting Code Manager</a></li>
+      <li><a href="./trouble_console-db.html">Troubleshooting the databases</a></li>
+      <li><a href="./trouble_puppet.html">Troubleshooting Puppet core</a></li>
+      <li><a href="./trouble_orchestration.html">Troubleshooting MCollective</a></li>
+      <li><a href="./trouble_windows.html">Troubleshooting Windows</a></li>
+    </ul>
+  </li></ul>
+  <ul class="pm-product-menu-item"><li>
+    <ul class="pm-product-menu-item__children">
+      <li><a href="./compliance_alt.html">Compliance alternate workflow</a></li>
+    </ul>
+  </li></ul>
+
+
+
+
+</nav><main role="main" class="col-lg-9"><article role="article"><h1>Reviewing applications</h1>
+<p>The <code>puppet app show</code> command allows you to view applications you’ve modeled or instantiated and are available to include in an orchestrator run.</p>
+<blockquote>
+  <p><strong>Note</strong>: The first time you run a command, you need to authenticate. See the <a href="./orchestrator_install.html#setting-pe-rbac-permissions-and-token-authentication-for-puppet-orchestrator">orchestrator installation instructions</a> for information about setting RBAC permissions and token authorization.</p>
+</blockquote>
+<blockquote>
+  <p><strong>Note:</strong> If you’re running this command from a managed or non-managed Windows workstation, you must specify the full path to the command. For example, <code>c:\Program Files\Puppet Labs\Client\bin\puppet-app show</code>.</p>
+</blockquote>
+<h2 id="view-applications">View applications</h2>
+<p>Use the <code>puppet app show</code> command to view running or completed orchestration jobs.</p>
+<ol>
+  <li>
+    <p>Log into your Puppet master or client tools workstation and run one of the following commands:</p>
+
+    <ul>
+      <li>
+        <p>To show an application:</p>
+
+        <pre><code>puppet app show &lt;APPLICATION&gt; &lt;OPTION&gt;
+</code></pre>
+      </li>
+      <li>
+        <p>To show an application instance:</p>
+
+        <pre><code>puppet app show &lt;APPLICATION INSTANCE&gt; &lt;OPTION&gt;
+</code></pre>
+      </li>
+      <li>
+        <p>To show all the application models and their instances found in your default environment (<code>production</code>)</p>
+
+        <pre><code>puppet app show
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ol>
+<h2 id="command-options">Command options</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Values</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<code>--environment</code>, <code>--env</code>, <code>-e</code>
+</td>
+      <td>environment name</td>
+      <td>Overrides the default environment specified in your orchestration configuration file.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="example-output">Example output</h2>
+<p>The following is an example output that shows two instances of an application assigned to nodes, <code>ExampleApp</code>. One instance is called <code>'staging'</code>, and the other is called <code>'dev'</code>.</p>
+<p><a href="./images/orchestrator_app_show.png"><img src="./images/orchestrator_app_show.png" alt="App Show" title="Click to enlarge"> (Click to enlarge)</a></p>
+<p>When you run <code>puppet app show</code>, the orchestrator cannot present a completely precise representation of the run order of components (for example, some node runs will start or complete before others). However, <code>puppet app show</code> lists the components in an order that respects dependencies between components. Components with dependencies are listed <em>*after</em> the components on which they depend.</p></article><div class="docs-feedback-inpage is-hidden" id="docs-feedback-inpage">
+
+  <p>To send us feedback or let us know about a docs error, <a href="#">open a ticket</a> (you need a Jira account) or leave a comment.</p>
+
+  <div class="pm-docs-feedback-form pm-margin-bottom--xl pm-margin-top--xl">
+
+    <form name="docs-feedback-form" method="post" data-netlify="true">
+      <div class="pm-margin-top--sm">
+        <label class="pm-docs-feedback-form__instructions">
+          Send feedback to the Docs team:
+          <div class="pm-input">
+            <div class="rc-input-container">
+              <textarea id="comment" name="comment" class="rc-input rc-input-multiline" placeholder="What should we know about this page?"></textarea>
+            </div>
+          </div>
+        </label>
+
+        <label class="pm-docs-feedback-form__instructions">
+          Email Address:
+          <div class="pm-input">
+            <div class="rc-input-container">
+              <input type="email" id="email" name="email" class="rc-input" value="" placeholder="Where can we reach you to follow up?">
+            </div>
+          </div>
+        </label>
+      </div>
+<!-- End pm-margin-top-/-sm -->
+
+      <button class="pm-button pm-button--blue">Submit</button>
+
+      <p class="pm-margin-top--sm">
+        If you leave us your email, we may contact you regarding your feedback.
+        For more information on how Puppet uses your personal information, see
+        our
+        <a href="https://puppet.com/legal/privacy-policy/" rel="noopener noreferrer" class="pm-link">privacy policy</a>.
+      </p>
+
+      <input type="hidden" name="subject" value="">
+
+      <input type="hidden" id="url" name="url" class="rc-input" value="" placeholder="">
+
+      <input type="hidden" id="form-name" name="form-name" class="rc-input" value="docs-feedback-form" placeholder="">
+
+      <input type="hidden" id="comment" name="comment" class="rc-input" value="" placeholder="">
+
+      <input type="hidden" id="email" name="email" class="rc-input" value="" placeholder="">
+    </form>
+  </div>
+<!-- End pm-docs-feedback-form -->
+</div>
+<!-- End docs-feedback-inpage -->
+</main>
+</div></div>
+<div class="pm-site-footer">
+  <div class="container pm-site-footer__wrapper">
+    <section>
+      <div class="pm-site-footer__content">
+        <div class="pm-site-footer__logo">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 560.7 198.2" focusable="false">
+            <path d="M99.1 99.1V53.5H64.2L45.6 34.8V0H0v45.6h34.9l18.7 18.7v24.1l-18.7 18.7H0v45.6h45.6v-34.8l18.7-18.7h34.8zM15.2 15.2h15.2v15.2H15.2zm15.2 122.2H15.2v-15.2h15.2z" fill="#ffae1a"></path>
+            <path d="M149.6 198.2h-20.1V99.1h20.1v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm124 24.3h-20.1v-6.6a26.24 26.24 0 01-19.4 8.3c-16.2 0-25.4-10.7-25.4-26.7V99.2h20.1v43.2c0 7.6 3.7 12.8 11.7 12.8 6.2 0 11.5-3.7 13-10v-46h20.2v72.3zm33.4 26.7h-20.1V99.1H307v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm80 51h-20.1V99.1H387v6c3.2-3.9 10.4-7.6 18.1-7.6 21.1 0 33 17.5 33 37.9s-12 37.7-33 37.7c-7.8 0-14.9-3.7-18.1-7.6v32.7zm0-51a15.23 15.23 0 0013.6 8.4c10.9 0 17.3-8.7 17.3-20.2 0-11.7-6.5-20.4-17.3-20.4a15.37 15.37 0 00-13.6 8.4zm123.2.6c-2.6 15.4-13.9 25.3-32.1 25.3-21.1 0-35.1-15.4-35.1-37.7 0-21.9 14.6-37.9 34.8-37.9 21.2 0 32.9 14.7 32.9 36v6.2h-48.3c.6 10.9 6.8 17.3 15.7 17.3 6.8 0 11.8-2.9 13.4-9.1h18.7zm-47.3-20.4h28c-.2-7.6-4.7-13.6-13-13.6-7.7 0-13.2 4.7-15 13.6zm60.9-12.1h-11V99.1h11V79.5h19.9v19.6h15.9v16.2h-15.9V147c0 5.7 3.1 8.3 8.3 8.3a17.36 17.36 0 008.7-2.4v17.8c-2.8 1.5-7.6 2.3-13 2.3-14.7 0-24-7.3-24-23.3v-34.4z" fill="#fff"></path>
+          </svg>
+        </div>
+        <div class="pm-site-footer__content-text">
+          <p class="text">Puppet automates the delivery and operation of the software that powers some of the biggest brands in the world.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="pm-site-footer__navs">
+        <div class="pm-site-footer__legal-menu legal footer-nav"><ul class="pm-site-footer__legal-menu__items items">
+<li class="item"><a href="/legal/">Legal</a></li>
+<li class="item"><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+<li class="item"><a href="/legal/terms-of-use/">Terms of Use</a></li>
+<li class="item"><a href="/security/">Security</a></li>
+</ul></div>
+<!-- Content generated with JS -->
+        <div class="pm-site-footer__coda-menu coda footer-nav"><ul class="pm-site-footer__coda-menu__items items">
+<li class="item"><a href="/sitemap/">Sitemap © 2020</a></li>
+<li class="item"><a href="/">Puppet</a></li>
+</ul></div>
+<!-- Content generated with JS -->
+      </div>
+    </section>
+  </div>
+<!-- End pm-site-footer__wrapper -->
+</div>
+<!-- End pm-site-footer -->
+<script src="https://puppet-docs-herrera.netlify.app/js/docs.js"></script>
+</body>
+</html>
